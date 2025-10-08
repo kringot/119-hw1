@@ -139,16 +139,17 @@ def q2(dfs):
     """
     # Check:
     # - that all three dataframes have the same shape
-    shape_check = df_2019.shape == df_2020.shape == df_2021.shape
+    # remember that the dataframes have been loaded and placed into an array, dfs
+    shape_check = dfs[0].shape == dfs[1].shape == dfs[2].shape
   
     # - the number of rows (0 in the brackets represents the rows)
-    rows_check = df_2019.shape[0] == df_2020.shape[0] == df_2021.shape[0]
+    rows_check = dfs[0].shape[0] == dfs[1].shape[0] == dfs[2].shape[0]
   
     # - the number of columns (1 in the brackets represents the columns)
-    columns_check = df_2019.shape[1] == df_2020.shape[1] == df_2021.shape[1]
+    columns_check = dfs[0].shape[1] == dfs[1].shape[1] == dfs[2].shape[1]
   
     # - the columns are listed in the correct order
-    order_check = list(df_2019.columns) == list(df_2020.columns) == list(df_2021.columns)
+    order_check = list(dfs[0].columns) == list(dfs[1].columns) == list(dfs[2].columns)
 
     # check that all the checks are true
     sanity_check = rows_check == columns_check == order_check
