@@ -197,7 +197,8 @@ def q3(dfs):
     # - that the set of university names in each year is the same
     # Return:
     # - True if they are the same, and False otherwise.
-    raise NotImplementedError
+    
+    # raise NotImplementedError
 
 """
 3b (commentary).
