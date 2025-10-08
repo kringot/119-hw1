@@ -139,10 +139,23 @@ def q2(dfs):
     """
     # Check:
     # - that all three dataframes have the same shape
-    # - the number of rows
-    # - the number of columns
+    shape_check = df_2019.shape == df_2020.shape == df_2021.shape
+  
+    # - the number of rows (0 in the brackets represents the rows)
+    rows_check = df_2019.shape[0] == df_2020.shape[0] == df_2021.shape[0]
+  
+    # - the number of columns (1 in the brackets represents the columns)
+    columns_check = df_2019.shape[1] == df_2020.shape[1] == df_2021.shape[1]
+  
     # - the columns are listed in the correct order
-    raise NotImplementedError
+    order_check = list(df_2019.columns) == list(df_2020.columns) == list(df_2021.columns)
+
+    # check that all the checks are true
+    sanity_check = rows_check == columns_check == order_check
+
+    # raise NotImplementedError
+
+    return sanity_check
 
 """
 ===== Interlude: Checking your output so far =====
