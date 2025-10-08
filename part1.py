@@ -98,6 +98,7 @@ def load_input():
     # Make sure you return the columns in the new order.
     # TODO
     df_2019_needed = df.drop(columns = ['international faculty', 'international students'])
+    print df_2019_needed
 
     # When you are done, remove the next line...
     raise NotImplementedError
