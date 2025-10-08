@@ -101,7 +101,7 @@ def load_input():
     
 
     # When you are done, remove the next line...
-    raise NotImplementedError
+    # raise NotImplementedError
 
     # ...and keep this line to return the dataframes.
     return [df_2019, df_2020, df_2021]
