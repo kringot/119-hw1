@@ -98,6 +98,8 @@ def load_input():
     # Make sure you return the columns in the new order.
     # TODO
     df_2019 = df_2019.drop(columns = ['international faculty', 'international students'])
+    df_2020 = df_2020.drop(columns = ['international faculty', 'international students'])
+    df_2021 = df_2021.drop(columns = ['international faculty', 'international students'])
     
 
     # When you are done, remove the next line...
