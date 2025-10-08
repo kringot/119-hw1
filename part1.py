@@ -97,7 +97,7 @@ def load_input():
     # columns we are interested in using the NEW_COLUMNS variable above.
     # Make sure you return the columns in the new order.
     # TODO
-    df_2019[:;
+    df_2019_needed = df.drop(columns = ['international faculty', 'international students']
 
     # When you are done, remove the next line...
     raise NotImplementedError
