@@ -198,9 +198,8 @@ def q3(dfs):
     # Return:
     # - True if they are the same, and False otherwise.
 
-    interlude(q1)
-    interlude(q2)
-
+    interlude()
+  
     # count the number of university names per year
     university_names, count = np.unique(dfs, return_counts = True)
 
