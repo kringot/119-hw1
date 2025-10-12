@@ -198,7 +198,8 @@ def q3(dfs):
     # Return:
     # - True if they are the same, and False otherwise.
 
-    interlude()
+    # re-combine the data frames in the list into one dataframe
+    dfs = pd.concat(dfs, ignore_index = True)
   
     # count the number of university names per year
     group_university_dfs = dfs.groupby('university').count()
