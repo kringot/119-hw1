@@ -156,7 +156,6 @@ def q2(dfs):
 
     # raise NotImplementedError
 
-    interlude(q1)
     return sanity_check
 
 """
@@ -198,6 +197,9 @@ def q3(dfs):
     # - that the set of university names in each year is the same
     # Return:
     # - True if they are the same, and False otherwise.
+
+    interlude(q1)
+    interlude(q2)
     
     # raise NotImplementedError
 
