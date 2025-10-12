@@ -201,14 +201,13 @@ def q3(dfs):
     interlude()
   
     # count the number of university names per year
-    university_names, count = np.unique(dfs, return_counts = True)
+    group_university_dfs = dfs.groupby('university')
 
-    print(university_names)
-    print(count)
+    group_count_university_dfs = group_university_dfs.count()
     
     # raise NotImplementedError
 
-    return university_names, count
+    return group_count_university_dfs
 
 """
 3b (commentary).
