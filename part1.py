@@ -200,13 +200,21 @@ def q3(dfs):
 
     # re-combine the data frames in the list into one dataframe
     dfs = pd.concat(dfs, ignore_index = True)
-  
-    # count the number of university names per year
-    group_university_dfs = dfs.groupby('university').count()
+
+    # group according to universities in each year
+    # dfs.groupby('year') groups the dataframe into smaller dataframes, one each for each year
+    # ['university'] focuses on the university column in each dataframe/group for each year
+    # .apply(lambda x: set(x.unique())) turns the unique university names and converts them into a set
+    sets_year_university_dfs = dfs.groupby('year')['university'].apply(lambda x: set(x.unique()))
+
+    # create a reference set to compare the others to, take the first year
+    reference_set = sets_year_university_dfs.iloc[0]
+
+    # compare the reference set to the others
     
     # raise NotImplementedError
 
-    return group_university_dfs
+    return sets_year_university_dfs
 
 """
 3b (commentary).
