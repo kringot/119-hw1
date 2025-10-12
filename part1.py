@@ -156,6 +156,7 @@ def q2(dfs):
 
     # raise NotImplementedError
 
+    interlude(q1)
     return sanity_check
 
 """
