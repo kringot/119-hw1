@@ -223,7 +223,9 @@ Comment below and explain why.
 
 === ANSWER Q3b BELOW ===
 
-The checks all passed for me. 
+All the previous checks passed, except for this one. 
+The check to see if each year had the same universities did not pass because it makes sense for rankings to change. 
+Especially since there might bed different placements for the universities near the 100th ranking. 
 
 === END OF Q3b ANSWER ===
 """
@@ -250,12 +252,14 @@ Hint:
 """
 
 def q4(dfs):
-    # Sample 5 rows from each dataframe
+    # Sample 5 rows from 2021
     # Print out the samples
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    2021_university_5_samples = dfs[2].sample(5)
 
     # Answer as a list of 5 university names
-    return []
+    return [2021_university_5_samples]
 
 """
 Once you have implemented this part,
