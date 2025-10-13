@@ -310,16 +310,19 @@ def q5a(dfs):
     # for this part, you will need to copy and paste
     # the output as a hardcoded list.)
 
+    # use .info() to check how many non-null values there are for each column
     non_null_values = dfs[2].info()
 
-    return non_null_values
+    return [100, 100, 100, 100, 100, 100, 100, 100]
 
 def q5b(dfs):
     # TODO
     # raise NotImplementedError
     # Remember to return the list here
 
-    return []
+    non_null_values = dfs[2].count()
+
+    return [non_null_values]
 
 """
 5c.
