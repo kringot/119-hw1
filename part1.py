@@ -256,7 +256,7 @@ def q4(dfs):
     # Print out the samples
     # raise NotImplementedError
 
-    university_2021_5_samples = dfs[2].sample(5)
+    university_2021_5_samples = dfs[2].sample(5).iloc['university']
 
     # Answer as a list of 5 university names
     return [university_2021_5_samples]
