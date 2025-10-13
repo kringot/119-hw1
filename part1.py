@@ -322,7 +322,7 @@ def q5b(dfs):
 
     non_null_values = dfs[2].count()
 
-    return [non_null_vallues]
+    return [non_null_values]
 
 """
 5c.
