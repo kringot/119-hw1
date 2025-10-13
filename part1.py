@@ -223,6 +223,8 @@ Comment below and explain why.
 
 === ANSWER Q3b BELOW ===
 
+The checks all passed for me. 
+
 === END OF Q3b ANSWER ===
 """
 
