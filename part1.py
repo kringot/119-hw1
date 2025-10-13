@@ -312,14 +312,14 @@ def q5a(dfs):
 
     non_null_values = dfs[2].info()
 
-return non_null_values
+    return non_null_values
 
 def q5b(dfs):
     # TODO
     raise NotImplementedError
     # Remember to return the list here
 
-return []
+    return []
 
 """
 5c.
