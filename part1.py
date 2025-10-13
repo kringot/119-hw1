@@ -399,12 +399,18 @@ def test_q5():
 
 === ANSWER Q6a BELOW ===
 
+None of the tests failed.
+
 === END OF Q6a ANSWER ===
 
 6b. For each test that fails, is it because your code
 is wrong or because the test is wrong?
 
 === ANSWER Q6b BELOW ===
+
+Before having all the tests pass, I had some fail. 
+This was mostly due to q3 and q5. q3 was not returning the right kind of list because all of the values were returned as 1 index in the list.
+q5 was not working because .count() returned a list that included the column names in addition to the number of non-null values. This caused an error. 
 
 === END OF Q6b ANSWER ===
 
@@ -423,7 +429,9 @@ Please include expected failures (@pytest.mark.xfail).
 
 def q6c():
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    return 2
 
 """
 ===== End of interlude =====
