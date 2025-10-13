@@ -322,7 +322,7 @@ def q5b(dfs):
 
     non_null_values = dfs[2].count()
 
-    return [non_null_values]
+    return [non_null_values[1]]
 
 """
 5c.
@@ -332,9 +332,9 @@ We will use this in the unit tests below.
 """
 
 def q5c():
-    raise NotImplementedError
+    # raise NotImplementedError
     # TODO: fill this in with the expected number
-    num_non_null = 0
+    num_non_null = 100
     return num_non_null
 
 """
