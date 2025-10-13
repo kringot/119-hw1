@@ -199,22 +199,22 @@ def q3(dfs):
     # - True if they are the same, and False otherwise.
 
     # re-combine the data frames in the list into one dataframe
-    dfs = pd.concat(dfs, ignore_index = True)
+    # dfs = pd.concat(dfs, ignore_index = True)
 
-    # group according to universities in each year
-    # dfs.groupby('year') groups the dataframe into smaller dataframes, one each for each year
-    # ['university'] focuses on the university column in each dataframe/group for each year
-    # .apply(lambda x: set(x.unique())) turns the unique university names and converts them into a set
-    sets_year_university_dfs = dfs.groupby('year')['university'].apply(lambda x: set(x.unique()))
 
     # create a reference set to compare the others to, take the first year
-    reference_set = sets_year_university_dfs.iloc[0]
+    reference_set = set(dfs[0]['university'].unique())
 
-    # compare the reference set to the others
+    # compare the reference set to the others through iteration
+    for df in dfs [1:]:
+        current_set = set(df['university'].unique())
+
+      if current_set != reference_set:
+          return False
+
+    return True
     
     # raise NotImplementedError
-
-    return sets_year_university_dfs
 
 """
 3b (commentary).
