@@ -207,10 +207,10 @@ def q3(dfs):
 
     # compare the reference set to the others through iteration
     for df in dfs [1:]:
-        current_set = set(df['university'].unique())
+      current_set = set(df['university'].unique())
 
       if current_set != reference_set:
-          return False
+        return False
 
     return True
     
