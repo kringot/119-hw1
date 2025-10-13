@@ -257,10 +257,10 @@ def q4(dfs):
     # raise NotImplementedError
 
     samples = dfs[2].sample(5)
-    university_samples = samples['university']
+    university_samples = samples['university'].tolist()
 
     # Answer as a list of 5 university names
-    return [university_samples]
+    return university_samples
 
 """
 Once you have implemented this part,
