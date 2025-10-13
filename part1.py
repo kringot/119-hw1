@@ -304,7 +304,7 @@ Example: if there are 5 non-null values in the first column, 3 in the second, 4 
 
 def q5a(dfs):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # Remember to return the list here
     # (Since .info() does not return any values,
     # for this part, you will need to copy and paste
@@ -316,7 +316,7 @@ def q5a(dfs):
 
 def q5b(dfs):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # Remember to return the list here
 
     return []
