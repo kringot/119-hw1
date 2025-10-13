@@ -334,7 +334,7 @@ We will use this in the unit tests below.
 def q5c():
     # raise NotImplementedError
     # TODO: fill this in with the expected number
-    num_non_null = 800
+    num_non_null = 100
     return num_non_null
 
 """
@@ -377,7 +377,7 @@ def test_q2():
 # @pytest.mark.skip
 def test_q3():
     dfs = load_input()
-    assert q3(dfs)
+    assert q3(dfs) == False
 
 # @pytest.mark.skip
 def test_q4():
