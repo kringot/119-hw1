@@ -272,13 +272,13 @@ and 3 weaknesses of this dataset.
 
 === ANSWER Q4b BELOW ===
 Strengths:
-1.
-2.
+1. The data is organized according to year, it is easier to find items in a date-sense.
+2. You can find information based on ranking, each ranking represents a row that has the university name and following information.
 
 Weaknesses:
-1.
-2.
-3.
+1. It is hard to find a university by name.
+2. It will be very difficult to find what one university placed as each year. 
+3. No telling how many places a university moved in placement each year.
 === END OF Q4b ANSWER ===
 """
 
@@ -310,10 +310,16 @@ def q5a(dfs):
     # for this part, you will need to copy and paste
     # the output as a hardcoded list.)
 
+    non_null_values = dfs[2].info()
+
+return non_null_values
+
 def q5b(dfs):
     # TODO
     raise NotImplementedError
     # Remember to return the list here
+
+return []
 
 """
 5c.
