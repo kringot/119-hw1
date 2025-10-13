@@ -334,7 +334,7 @@ We will use this in the unit tests below.
 def q5c():
     # raise NotImplementedError
     # TODO: fill this in with the expected number
-    num_non_null = 100
+    num_non_null = 800
     return num_non_null
 
 """
@@ -363,29 +363,29 @@ from each unit test (function beginning with `test_`).
 Then, run `pytest part1.py` in the terminal.
 """
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_q1():
     dfs = load_input()
     assert len(dfs) == 3
     assert all([isinstance(df, pd.DataFrame) for df in dfs])
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_q2():
     dfs = load_input()
     assert q2(dfs)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_q3():
     dfs = load_input()
     assert q3(dfs)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_q4():
     dfs = load_input()
     samples = q4(dfs)
     assert len(samples) == 5
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_q5():
     dfs = load_input()
     answers = q5a(dfs) + q5b(dfs)
