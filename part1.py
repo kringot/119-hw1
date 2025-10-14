@@ -583,7 +583,7 @@ def q10(avg_2021):
     avg_2021_head = avg_2021.head()
   
     # return 5
-    return len(avg_2021_head)
+    return avg_2021_head
 
 """
 ===== Questions 11-14: Exploring the avg_2021 dataframe =====
