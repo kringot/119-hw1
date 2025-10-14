@@ -454,8 +454,8 @@ def q7(dfs):
 
     # use for loop to add into each data frame
     for df in dfs:
-    # np.nan is for numerical values, none is for null values, and '' is for strings
-        df['year'] = np.nan
+    # np.nan is for numerical values, None is for null values, and '' is for strings
+        df['year'] = None
 
     return dfs
 
