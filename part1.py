@@ -800,24 +800,24 @@ def q15_helper(dfs):
 
     # get top 10 universities from 2019
     df_2019 = dfs[0]
-    top_10_2019 = df_2019[df_2019['rank'] <= 10].copy()
+    top_10_2019_fetus = df_2019[df_2019['rank'] <= 10].copy()
 
     # rename the columns
-    top_10_2019.rename(columns = {'overall score': 'overall score 2019'})
+    top_10_2019 = top_10_2019_fetus.rename(columns = {'overall score': 'overall score 2019'})
 
     # get top 10 universities from 2020
     df_2020 = dfs[1]
-    top_10_2020 = df_2020[df_2020['rank'] <= 10].copy()
+    top_10_2020_fetus = df_2020[df_2020['rank'] <= 10].copy()
 
     # rename the columns
-    top_10_2020.rename(columns = {'overall score': 'overall score 2020'})
+    top_10_2020 = top_10_2020_fetus.rename(columns = {'overall score': 'overall score 2020'})
 
     # get top 10 unversities from 2021
     df_2021 = dfs[2]
-    top_10_2021 = df_2021[df_2021['rank'] <= 10].copy
+    top_10_2021_fetus = df_2021[df_2021['rank'] <= 10].copy
 
     # rename the columns
-    top_10_2021.rename(columns = {'overall score': 'overall score 2021'})
+    top_10_2021 = top_10_2021_fetus.rename(columns = {'overall score': 'overall score 2021'})
     
     # merge the universities from 2019 with 2020
     top_10 = top_10_2019.merge(top_10_2020, on = 'university', how = 'inner')
