@@ -768,7 +768,7 @@ As your answer, return the shape of the new dataframe.
     # Return the new dataframe
     # TODO
     # Placeholder:
-    top_10 = pd.DataFrame()
+    # top_10 = pd.DataFrame()
     # return top_10
 
 # def q15(top_10):
