@@ -449,8 +449,15 @@ As your answer to this part, return the number of columns in each dataframe afte
 
 def q7(dfs):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # Remember to return the list here
+
+    # use for loop to add into each data frame
+    for df in dfs:
+    # np.nan is for numerical values, none is for null values, and '' is for strings
+        df['year'] = np.nan
+
+    return dfs
 
 """
 8a.
