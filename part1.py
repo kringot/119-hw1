@@ -559,7 +559,7 @@ def q10_helper(dfs):
     df_2021_region_needed = df_2021_region[['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
 
     # calculate the average of each column
-    avg_2021_fetus = df_2021_region_needed.mean(axis = 0)
+    avg_2021_fetus = df_2021_region_needed.mean()
     
     # Placeholder for the avg_2021 dataframe
     avg_2021 = pd.DataFrame(avg_2021_fetus)
