@@ -1004,24 +1004,24 @@ def PART_1_PIPELINE():
     # 12b: commentary
     log_answer("q13", q13a, avg_2021)
     # 13b: commentary
-    log_answer("q14a", q14a, avg_2021)
+    # log_answer("q14a", q14a, avg_2021)
     # 14b: commentary
 
     # Questions 15-17
-    top_10 = q15_helper(dfs)
-    log_answer("q15", q15, top_10)
-    log_answer("q16", q16, top_10)
-    log_answer("q17", q17a, top_10)
+    # top_10 = q15_helper(dfs)
+    # log_answer("q15", q15, top_10)
+    # log_answer("q16", q16, top_10)
+    # log_answer("q17", q17a, top_10)
     # 17b: commentary
 
     # Questions 18-20
-    log_answer("q18", q18, dfs)
+    # log_answer("q18", q18, dfs)
     # 19: commentary
 
     # Questions 20-22
-    log_answer("q20a", q20a, dfs)
-    log_answer("q20b", q20b, dfs)
-    log_answer("q21", q21)
+    # log_answer("q20a", q20a, dfs)
+    # log_answer("q20b", q20b, dfs)
+    # log_answer("q21", q21)
     # 22: commentary
 
     # Answer: return the number of questions that are not implemented
