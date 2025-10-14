@@ -59,6 +59,7 @@ To begin, let's load the Pandas library.
 """
 
 import pandas as pd
+import os
 
 """
 1. Load the dataset into Pandas
@@ -73,6 +74,13 @@ by filling in the parts marked TODO below.
 Return as your answer to q1 the number of dataframes loaded.
 (This part is implemented for you.)
 """
+
+os.makedirs('output', exist_ok=True)
+ANSWER_FILE = "output/part1-answers.txt"
+# Create the part1-answers.txt file if it doesn't exist
+if not os.path.exists(ANSWER_FILE):
+    with open(ANSWER_FILE, 'w') as f:
+        pass
 
 NEW_COLUMNS = ['rank', 'university', 'region', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
 
