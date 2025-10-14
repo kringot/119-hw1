@@ -703,12 +703,12 @@ def q13a(avg_2021):
     # TODO
     # raise NotImplementedError
 
-    whskr_avg_2021 = plt.boxplot(avg_2021, 
-                                 boxprops = dict(color = 'blue'),
-                                 medianprops = dict(color = 'red', linewidth = 2),
-                                 whiskerprops = dict(color = 'blue', linewidth = 2))
+    # create and plot the averages onto boxplot
+    plt.figure()
+    plt.boxplot(avg_2021)
 
-    whskr_avg_2021.savefig('output/part1-13a.png')
+    # save the plot onto png
+    plt.savefig('output/part1-13a.png')
   
     return "output/part1-13a.png"
 
