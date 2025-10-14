@@ -488,9 +488,9 @@ def q8a(dfs):
     only_USA_2021 = only_2021[only_2021['region'] == 'USA']
 
     # count how many universities
-    count_USA_2021 = only_USA_2021['university'].count()
+    # count_USA_2021 = only_USA_2021['university'].count()
 
-    return count_USA_2021
+    return only_USA_2021
 
   
 
