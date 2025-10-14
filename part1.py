@@ -831,6 +831,10 @@ def q15(top_10):
     # TODO
     # raise NotImplementedError
 
+    # print the table to have insight
+    print(top_10)
+
+    # return the shape of the dataframe
     return top_10.shape
 
 """
