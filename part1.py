@@ -656,7 +656,7 @@ def q12(avg_2019):
     return avg_2019_score_desc
 
 # use q12a to calculate the overall score of 2021 in descending order to compare to 2019 and then return which country is the one that moved rankings 
-def q12a(avg_2021, avg_2019):
+def q12a(avg_2021):
     # raise NotImplementedError
     # return ("TODO", "TODO")
 
