@@ -578,12 +578,12 @@ def q10(avg_2021):
     # Enter code here
     # raise NotImplementedError
 
-    # count the number of returned rows
+    # get only the first 5 rows
     # head() automatically returns the first 5 rows
-    avg_2021_count_5 = avg_2021.head().count()
+    avg_2021_head = avg_2021.head()
   
     # return 5
-    return avg_2021_count_5
+    return len(avg_2021_head)
 
 """
 ===== Questions 11-14: Exploring the avg_2021 dataframe =====
