@@ -878,19 +878,29 @@ def q17a(top_10):
     # TODO
     # raise NotImplementedError
 
-    # create a new graph, multiple line graph
-    plt.figure()
+    # set university as the index
+    top_10_plot = top_10.set_index('university')
 
-    # plot the lines
-    plt.plot(top_10['university'], top_10['overall score 2019'], color = 'blue')
+    # transpose the data so that the years are on the index (x-axis) instead
+    top_10_t = top_10_plot.T
 
-    # set the title and labels
-    plt.title('Overall Scores of Top 10 Universities from 2019 to 2021')
-    plt.xlabel('Universities')
-    plt.ylabel('Years')
+    # take the year from the column names to use as x-axis labels
+    top_10_t.index = ['2019', '2020', '2021']
 
-    # add a legend
-    plt.legend()
+    # create the line plot
+    ax = top_10_t.plot(
+        kind = 'line',
+      # add a marker for each year
+      marker = 'o'
+    )
+
+    # set title and labels
+    ax.set_title('Overall Score of Top 10 Universities from 2019 to 2021')
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Overall Score')
+
+    # add a legend to show which university is which
+    ax.legend(title = 'University')
 
     # save the plot into png
     plt.savefig('output/part1-17a.png')
