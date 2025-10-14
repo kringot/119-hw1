@@ -629,7 +629,7 @@ and the name of one country/region that went down in the rankings.
 # use q12_helper to calculate the average of all attributes according to region of 2019 rankings dataframe
 def q12_helper(dfs):
     # get the dataframe with only 2019
-    df_2019 = dfs[2]
+    df_2019 = dfs[0]
 
     # group the data according to region
     df_2019_region = df_2019.groupby('region')
