@@ -848,7 +848,7 @@ You should be able to modify the column names directly in the dataframe.
 As your answer, return the new column names as a list.
 """
 
-# def q16(top_10):
+def q16(top_10):
     # Enter code here
     # TODO
     # raise NotImplementedError
@@ -1077,7 +1077,7 @@ def PART_1_PIPELINE():
     # Questions 15-17
     top_10 = q15_helper(dfs)
     log_answer("q15", q15, top_10)
-    # log_answer("q16", q16, top_10)
+    log_answer("q16", q16, top_10)
     # log_answer("q17", q17a, top_10)
     # 17b: commentary
 
