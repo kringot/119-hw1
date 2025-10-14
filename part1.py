@@ -852,7 +852,13 @@ As your answer, return the new column names as a list.
     # Enter code here
     # TODO
     # raise NotImplementedError
-    # return list(df.columns)
+
+    # the columns were already renamed in the previous function
+
+    # return the column names as a list
+    return list(top_10.columns)
+
+    
 
 """
 17a.
