@@ -882,7 +882,7 @@ def q17a(top_10):
     plt.figure()
 
     # plot the lines
-    plt.plot(top_10['universities'], top_10['overall score 2019'], color = 'blue')
+    plt.plot(top_10['university'], top_10['overall score 2019'], color = 'blue')
 
     # set the title and labels
     plt.title('Overall Scores of Top 10 Universities from 2019 to 2021')
