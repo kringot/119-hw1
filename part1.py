@@ -726,6 +726,9 @@ plot?
 
 === ANSWER Q13b BELOW ===
 
+  There is an anomoly, which is the outlier spotted in the overall score attribute. 
+  It also has the smallest spread.
+
 === END OF Q13b ANSWER ===
 """
 
@@ -744,7 +747,15 @@ As the answer to this part, return the name of the plot you saved.
     # TODO
     # raise NotImplementedError
 
-    
+    # create new scatter plot
+    plt.figure()
+    plt.scatter(avg_2021['faculty student'], avg_2021['overall score'], color = 'blue')
+    plt.title('Scatter Plot')
+    plt.show()
+
+    # save the plot onto png
+    plt.savefig('output/part1-14a.png')
+
     # return "output/part1-14a.png"
 
 """
