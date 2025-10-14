@@ -980,7 +980,7 @@ def PART_1_PIPELINE():
     # 12: avg_2019
     avg_2019 = q12_helper(dfs)
     log_answer("q12", q12, avg_2019)
-    log_answer("q12a", q12a, avg_2021, avg_2019)
+    log_answer("q12a", q12a, avg_2021)
     # 12b: commentary
     log_answer("q13", q13a, avg_2021)
     # 13b: commentary
