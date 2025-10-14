@@ -713,7 +713,11 @@ def q13a(avg_2021):
 
     # create and plot the averages onto boxplot
     plt.figure()
-    plt.boxplot(avg_2021)
+    plt.boxplot(avg_2021, labels = avg_2021.columns)
+
+    # edit labels and titles
+    plt.title('Averages of Attributes from Top 100 Universities in 2021 According to Region')
+    
 
     # save the plot onto png
     plt.savefig('output/part1-13a.png')
@@ -750,8 +754,11 @@ def q14a(avg_2021):
     # create new scatter plot
     plt.figure()
     plt.scatter(avg_2021['faculty student'], avg_2021['overall score'], color = 'blue')
-    plt.title('Scatter Plot')
-    plt.show()
+
+    # edit labels and titles
+    plt.title('Averages of Two Attributes from Top 100 Universities in 2021 According to Region')
+    plt.xlabel('Average Number of Faculty and Students')
+    plt.ylabel('Average Overall Score')
 
     # save the plot onto png
     plt.savefig('output/part1-14a.png')
