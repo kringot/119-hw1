@@ -475,7 +475,7 @@ As your answer, return the count for "USA" in 2021.
 def q8a(dfs):
     # Enter Code here
     # TODO
-    # raise NotImplementedError
+   raise NotImplementedError
     # Remember to return the count here
 
   
