@@ -526,9 +526,12 @@ def q9(dfs):
     # take out df of rankings of 2021
     df_2021 = dfs[2]
 
+    # filter out non-numeric columns
+    numeric_df_2021 = df_2021.select_dtypes(include = ['number'])
+
     # calculate th means of each column
     # axis = 0 makes it so it calculates for the columns, axis = 1 is for rows
-    column_means_2021 = df_2021.mean(axis = 0).tolist()
+    column_means_2021 = numeric_df_2021.mean(axis = 0).tolist()
 
     return column_means_2021
 
