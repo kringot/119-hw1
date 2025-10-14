@@ -793,7 +793,7 @@ Hint:
 As your answer, return the shape of the new dataframe.
 """
 
-# def q15_helper(dfs):
+def q15_helper(dfs):
     # Return the new dataframe
     # TODO
     # Placeholder:
@@ -826,10 +826,12 @@ As your answer, return the shape of the new dataframe.
 
     return top_10
 
-# def q15(top_10):
+def q15(top_10):
     # Enter code here
     # TODO
     # raise NotImplementedError
+
+    return top_10
 
 """
 16.
@@ -1063,8 +1065,8 @@ def PART_1_PIPELINE():
     # 14b: commentary
 
     # Questions 15-17
-    # top_10 = q15_helper(dfs)
-    # log_answer("q15", q15, top_10)
+    top_10 = q15_helper(dfs)
+    log_answer("q15", q15, top_10)
     # log_answer("q16", q16, top_10)
     # log_answer("q17", q17a, top_10)
     # 17b: commentary
