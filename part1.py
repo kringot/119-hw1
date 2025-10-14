@@ -708,11 +708,9 @@ def q13a(avg_2021):
                                  medianprops = dict(color = 'red', linewidth = 2),
                                  whiskerprops = dict(color = 'blue', linewidth = 2))
 
-    # whskr_avg_2021.title('All Attributes of Top 100 Ranked Universities in 2021')
-    # whskr_avg_2021.ylabel('Average Value')
+    whskr_avg_2021.savefig('output/part1-13a.png')
   
-    # return "output/part1-13a.png"
-    return whskr_avg_2021
+    return "output/part1-13a.png"
 
 """
 b. Do you observe any anomalies in the box and whisker
