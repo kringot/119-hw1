@@ -478,6 +478,9 @@ def q8a(dfs):
     # raise NotImplementedError
     # Remember to return the count here
 
+    # re-combine the data frames in the list into one dataframe
+    dfs = pd.concat(dfs, ignore_index = True)
+
     # filter by year first 
     only_2021 = dfs[dfs['year'] == 2021]
 
