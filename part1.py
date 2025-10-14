@@ -704,7 +704,7 @@ def q13a(avg_2021):
     # raise NotImplementedError
 
     whskr_avg_2021 = plt.boxplot(avg_2021, 
-                                 boxprops = dict(facecolor = 'lightblue', color = 'blue'),
+                                 boxprops = dict(color = 'blue'),
                                  medianprops = dict(color = 'red', linewidth = 2),
                                  whiskerprops = dict(color = 'blue', linewidth = 2))
 
