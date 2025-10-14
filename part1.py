@@ -890,8 +890,9 @@ def q17a(top_10):
     # create the line plot
     ax = top_10_t.plot(
         kind = 'line',
-      # add a marker for each year
-      marker = 'o'
+        figsize = (12, 7), 
+        # add a marker for each year
+        marker = 'o'
     )
 
     # set title and labels
