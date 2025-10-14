@@ -475,8 +475,19 @@ As your answer, return the count for "USA" in 2021.
 def q8a(dfs):
     # Enter Code here
     # TODO
-   raise NotImplementedError
+    # raise NotImplementedError
     # Remember to return the count here
+
+    # filter by year first 
+    only_2021 = dfs[dfs['year'] == 2021]
+
+    # filter by USA next
+    only_USA_2021 = only_2021[only_2021['region'] == 'USA']
+
+    # count how many universities
+    count_USA_2021 = only_USA_2021['university'].count()
+
+    return count_USA_2021
 
   
 
