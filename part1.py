@@ -408,9 +408,9 @@ is wrong or because the test is wrong?
 
 === ANSWER Q6b BELOW ===
 
-Before having all the tests pass, I had some fail. 
-This was mostly due to q3 and q5. q3 was not returning the right kind of list because all of the values were returned as 1 index in the list.
-q5 was not working because .count() returned a list that included the column names in addition to the number of non-null values. This caused an error. 
+  Before having all the tests pass, I had some fail. 
+  This was mostly due to q3 and q5. q3 was not returning the right kind of list because all of the values were returned as 1 index in the list.
+  q5 was not working because .count() returned a list that included the column names in addition to the number of non-null values. This caused an error. 
 
 === END OF Q6b ANSWER ===
 
@@ -488,9 +488,9 @@ def q8a(dfs):
     only_USA_2021 = only_2021[only_2021['region'] == 'USA']
 
     # count how many universities
-    # count_USA_2021 = only_USA_2021['university'].count()
+    count_USA_2021 = only_USA_2021['university'].count()
 
-    return only_USA_2021
+    return count_USA_2021
 
   
 
@@ -500,6 +500,9 @@ Do you notice some trend? Comment on what you observe and why might that be cons
 
 === ANSWER Q8b BELOW ===
 
+  A trend that I notice is that a lot of the universities tend to remain close to where they placed in the rankings the previous year.
+  Although the universities near the 100th ranking tend to be more mobile.
+  
 === END OF Q8b ANSWER ===
 """
 
@@ -517,8 +520,17 @@ The list should contain 5 elements.
 def q9(dfs):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # Return the list here
+
+    # take out df of rankings of 2021
+    df_2021 = dfs[2]
+
+    # calculate th means of each column
+    # axis = 0 makes it so it calculates for the columns, axis = 1 is for rows
+    column_means_2021 = df_2021.mean(axis = 0).tolist()
+
+    return column_means_2021
 
 """
 10.
