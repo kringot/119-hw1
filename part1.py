@@ -873,11 +873,29 @@ Note:
 *   Your graph should be clear and legend should be placed suitably
 """
 
-# def q17a(top_10):
+def q17a(top_10):
     # Enter code here
     # TODO
     # raise NotImplementedError
-    # return "output/part1-17a.png"
+
+    # create a new graph, multiple line graph
+    plt.figure()
+
+    # plot the lines
+    plt.plot(top_10['universities'], top_10['overall score 2019'], color = 'blue')
+
+    # set the title and labels
+    plt.title('Overall Scores of Top 10 Universities from 2019 to 2021')
+    plt.xlabel('Universities')
+    plt.ylabel('Years')
+
+    # add a legend
+    plt.legend()
+
+    # save the plot into png
+    plt.savefig('output/part1-17a.png')
+    
+    return "output/part1-17a.png"
 
 """
 17b.
@@ -1078,7 +1096,7 @@ def PART_1_PIPELINE():
     top_10 = q15_helper(dfs)
     log_answer("q15", q15, top_10)
     log_answer("q16", q16, top_10)
-    # log_answer("q17", q17a, top_10)
+    log_answer("q17", q17a, top_10)
     # 17b: commentary
 
     # Questions 18-20
