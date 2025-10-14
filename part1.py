@@ -900,7 +900,7 @@ def q17a(top_10):
     ax.set_ylabel('Overall Score')
 
     # add a legend to show which university is which
-    ax.legend(title = 'University')
+    ax.legend(title = 'University', loc = 'center left')
 
     # save the plot into png
     plt.savefig('output/part1-17a.png')
