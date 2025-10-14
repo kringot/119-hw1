@@ -601,7 +601,7 @@ def q11(avg_2021):
     avg_2021_score_desc = avg_2021.sort_values(by = 'overall score', ascending = False)
 
     # return only the first row of sorted dataframe
-    return avg_2021_score_desc
+    return avg_2021_score_desc.iloc[0]
 
 """
 12a.
@@ -626,9 +626,44 @@ For the answer to this part return the name of the country/region that tops the 
 and the name of one country/region that went down in the rankings.
 """
 
-def q12a(avg_2021):
-    raise NotImplementedError
-    return ("TODO", "TODO")
+# use q12_helper to calculate the average of all attributes according to region of 2019 rankings dataframe
+def q12_helper(dfs):
+    # get the dataframe with only 2019
+    df_2019 = dfs[2]
+
+    # group the data according to region
+    df_2019_region = df_2019.groupby('region')
+
+    # keep only needed attributes
+    df_2019_region_needed = df_2019_region[['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
+
+    # calculate the average of each column
+    # no need to specify the axis in mean() because the values are already grouped, and it will return an error
+    avg_2019_fetus = df_2019_region_needed.mean()
+    
+    # Placeholder for the avg_2021 dataframe
+    avg_2019 = pd.DataFrame(avg_2019_fetus)
+  
+    return avg_2019
+
+# use q12 to calculate the overall score of 2019 in descending order
+def q12(avg_2019):
+    # raise NotImplementedError
+
+    # sort rows based on overall score in descending order
+    avg_2019_score_desc = avg_2019.sort_values(by = 'overall score', ascending = False)
+
+    return avg_2019_score_desc
+
+# use q12a to calculate the overall score of 2021 in descending order to compare to 2019 and then return which country is the one that moved rankings 
+def q12a(avg_2021, avg_2019):
+    # raise NotImplementedError
+    # return ("TODO", "TODO")
+
+    # sort rows based on overall score in descending order
+    avg_2021_score_desc = avg_2021.sort_values(by = 'overall score', ascending = False)
+
+    return avg_2021_score_desc
 
 """
 12b.
@@ -942,7 +977,10 @@ def PART_1_PIPELINE():
 
     # Questions 11-15
     log_answer("q11", q11, avg_2021)
-    log_answer("q12", q12a, avg_2021)
+    # 12: avg_2019
+    avg_2019 = q12_helper(dfs)
+    log_answer("q12", q12, avg_2019)
+    log_answer("q12", q12a, avg_2021, avg_2019)
     # 12b: commentary
     log_answer("q13", q13a, avg_2021)
     # 13b: commentary
