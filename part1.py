@@ -770,6 +770,9 @@ Do you observe any general trend?
 
 === ANSWER Q14b BELOW ===
 
+  Between the x, the number of faculty and students, and the y, overall score, there is an overall positive trend.
+  Although there are more x values that do not have very high y values.
+
 === END OF Q14b ANSWER ===
 
 ===== Questions 15-20: Exploring the data further =====
