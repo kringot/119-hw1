@@ -712,7 +712,7 @@ def q13a(avg_2021):
     # whskr_avg_2021.ylabel('Average Value')
   
     # return "output/part1-13a.png"
-    return whsker_avg_2021
+    return whskr_avg_2021
 
 """
 b. Do you observe any anomalies in the box and whisker
