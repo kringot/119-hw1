@@ -663,7 +663,13 @@ def q12a(avg_2021):
     # sort rows based on overall score in descending order
     avg_2021_score_desc = avg_2021.sort_values(by = 'overall score', ascending = False)
 
-    return avg_2021_score_desc
+    # print the data frame to be able to compare with 2019
+    print(avg_2021_score_desc)
+
+    # create new variable to hold the country that fell off
+    country_fell_off = 'South Korea'
+
+    return country_fell_off
 
 """
 12b.
