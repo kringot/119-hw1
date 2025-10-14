@@ -595,7 +595,13 @@ As your answer to this part, return the first row of the sorted dataframe.
 """
 
 def q11(avg_2021):
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # sort rows based on overall score in descending order
+    avg_2021_score_desc = avg_2021.sort_values(by = 'overall score', ascending = False)
+
+    # return only the first row of sorted dataframe
+    return avg_2021_score_desc.iloc[0]
 
 """
 12a.
