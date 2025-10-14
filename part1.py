@@ -803,7 +803,7 @@ def q15_helper(dfs):
     top_10_2019_fetus = df_2019[df_2019['rank'] <= 10].copy()
 
     # rename the columns
-    top_10_2019 = top_10_2019_fetus.rename(columns = {'overall score': 'overall score 2019'})
+    top_10_2019 = top_10_2019_fetus.rename(columns = {'overall score': 'overall score 2019'}, inplace = True)
 
     # get top 10 universities from 2020
     df_2020 = dfs[1]
