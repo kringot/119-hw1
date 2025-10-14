@@ -678,6 +678,10 @@ Comment on why the country above is at the top of the list.
 
 === ANSWER Q12b BELOW ===
 
+  Singapore is the country at the top of the list for both 2019 amd 2021. 
+  This is because their overall score is the highest, which might have been most influenced by their high averages in academic reputation and faculty students.
+  As their averages for those scores are uniquely higher.
+
 === END OF Q12b ANSWER ===
 """
 
@@ -697,8 +701,18 @@ import matplotlib.pyplot as plt
 def q13a(avg_2021):
     # Plot the box and whisker plot
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    whskr_avg_2021 = plt.boxplot(avg_2021, 
+                                 boxprops = dict(facecolor = 'lightblue', color = 'blue'),
+                                 medianprops = dict(color = 'red', linewidth = 2),
+                                 whiskerprops = dict(color = 'blue', linewidth = 2))
+
+    whskr_avg_2021.title('All Attributes of Top 100 Ranked Universities in 2021')
+    whskr_avg_2021.ylabel('Average Value')
+  
     # return "output/part1-13a.png"
+    return whsker_avg_2021
 
 """
 b. Do you observe any anomalies in the box and whisker
