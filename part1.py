@@ -742,7 +742,7 @@ Store your plot in output/part1-14a.png.
 As the answer to this part, return the name of the plot you saved.
 """
 
-# def q14a(avg_2021):
+def q14a(avg_2021):
     # Enter code here
     # TODO
     # raise NotImplementedError
@@ -756,7 +756,7 @@ As the answer to this part, return the name of the plot you saved.
     # save the plot onto png
     plt.savefig('output/part1-14a.png')
 
-    # return "output/part1-14a.png"
+    return "output/part1-14a.png"
 
 """
 Do you observe any general trend?
@@ -1023,7 +1023,7 @@ def PART_1_PIPELINE():
     # 12b: commentary
     log_answer("q13", q13a, avg_2021)
     # 13b: commentary
-    # log_answer("q14a", q14a, avg_2021)
+    log_answer("q14a", q14a, avg_2021)
     # 14b: commentary
 
     # Questions 15-17
