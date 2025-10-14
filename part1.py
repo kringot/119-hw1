@@ -452,10 +452,16 @@ def q7(dfs):
     # raise NotImplementedError
     # Remember to return the list here
 
+    # set this to be the values in year column
+    current_year = 2019
+
     # use for loop to add into each data frame
     for df in dfs:
-    # np.nan is for numerical values, None is for null values, and '' is for strings
-        df['year'] = None
+        # np.nan is for numerical values, None is for null values, and '' is for strings
+        df['year'] = current_year
+
+        # add 1 year to current_year for next year's data frame
+        current_year = current_year + 1
 
     return dfs
 
@@ -469,8 +475,10 @@ As your answer, return the count for "USA" in 2021.
 def q8a(dfs):
     # Enter Code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # Remember to return the count here
+
+    for df
 
 """
 8b.
