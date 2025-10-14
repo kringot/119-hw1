@@ -548,8 +548,21 @@ Then in q10, print the first 5 rows of the avg_2021 dataframe.
 def q10_helper(dfs):
     # Enter code here
     # TODO
+
+    # get the dataframe with only 2021
+    df_2021 = dfs[2]
+
+    # group the data according to region
+    df_2021_region = df_2021.groupby('region')
+
+    # keep only needed attributes
+    df_2021_region_needed = df_2021_region[['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
+
+    # calculate the average of each column
+    avg_2021_fetus = df_2021_region_needed.mean(axis = 0)
+    
     # Placeholder for the avg_2021 dataframe
-    avg_2021 = pd.DataFrame()
+    avg_2021 = pd.DataFrame(avg_2021_fetus)
     return avg_2021
 
 def q10(avg_2021):
