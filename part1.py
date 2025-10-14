@@ -733,10 +733,10 @@ Store your plot in output/part1-14a.png.
 As the answer to this part, return the name of the plot you saved.
 """
 
-def q14a(avg_2021):
+# def q14a(avg_2021):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # return "output/part1-14a.png"
 
 """
@@ -764,17 +764,17 @@ Hint:
 As your answer, return the shape of the new dataframe.
 """
 
-def q15_helper(dfs):
+# def q15_helper(dfs):
     # Return the new dataframe
     # TODO
     # Placeholder:
     top_10 = pd.DataFrame()
-    return top_10
+    # return top_10
 
-def q15(top_10):
+# def q15(top_10):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
 
 """
 16.
@@ -787,10 +787,10 @@ You should be able to modify the column names directly in the dataframe.
 As your answer, return the new column names as a list.
 """
 
-def q16(top_10):
+# def q16(top_10):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # return list(df.columns)
 
 """
@@ -806,10 +806,10 @@ Note:
 *   Your graph should be clear and legend should be placed suitably
 """
 
-def q17a(top_10):
+# def q17a(top_10):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # return "output/part1-17a.png"
 
 """
@@ -842,10 +842,10 @@ As the answer to this part, return the name of the plot you saved.
 **Helpful link:** https://datatofish.com/correlation-matrix-pandas/
 """
 
-def q18(dfs):
+# def q18(dfs):
     # Enter code here
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # return "output/part1-18.png"
 
 """
@@ -889,14 +889,14 @@ Use your new column to sort the data by the new values and return the top 10 uni
 
 """
 
-def q20a(dfs):
+# def q20a(dfs):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # For your answer, return the score for Berkeley in the new column.
 
-def q20b(dfs):
+# def q20b(dfs):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
     # For your answer, return the top 10 university names as a list.
 
 """
@@ -915,9 +915,9 @@ The function does not take an input; you should get it from the file.
 Return the top 10 university names as a list from the falsified data.
 """
 
-def q21():
+# def q21():
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
 
 """
 22. Exploring data manipulation and falsification, continued
