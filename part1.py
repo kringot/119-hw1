@@ -478,7 +478,7 @@ def q8a(dfs):
     # raise NotImplementedError
     # Remember to return the count here
 
-    for df
+  
 
 """
 8b.
