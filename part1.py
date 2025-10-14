@@ -559,10 +559,12 @@ def q10_helper(dfs):
     df_2021_region_needed = df_2021_region[['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
 
     # calculate the average of each column
+    # no need to specify the axis in mean() because the values are already grouped, and it will return an error
     avg_2021_fetus = df_2021_region_needed.mean()
     
     # Placeholder for the avg_2021 dataframe
     avg_2021 = pd.DataFrame(avg_2021_fetus)
+  
     return avg_2021
 
 def q10(avg_2021):
@@ -574,8 +576,14 @@ def q10(avg_2021):
     (That is, return the integer 5)
     """
     # Enter code here
-    raise NotImplementedError
-    # Return 5
+    # raise NotImplementedError
+
+    # count the number of returned rows
+    # head() automatically returns the first 5 rows
+    avg_2021_count_5 = avg_2021.head().count()
+  
+    # return 5
+    return avg_2021_count_5
 
 """
 ===== Questions 11-14: Exploring the avg_2021 dataframe =====
