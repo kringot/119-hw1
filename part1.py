@@ -527,7 +527,7 @@ def q9(dfs):
     df_2021 = dfs[2]
 
     # filter out columns to only the ones we need
-    need_df_2021 = df_2021['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
+    need_df_2021 = df_2021[['academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
 
     # calculate th means of each column
     # axis = 0 makes it so it calculates for the columns, axis = 1 is for rows
