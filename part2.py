@@ -306,12 +306,18 @@ class LatencyHelper:
         return ltcs
 
     def generate_plot(self, filename):
+
+        # create a safe list for plotting to ensure that all values are finite
+        sfe_ltcs = [
+            t if (t != float('inf') and t == t) else 0.0
+            for t in self.latencies
+        ]
         
         # Generate a plot for latency using matplotlib.
         # You can use any plot you like, but a bar chart probably makes
         # the most sense.
         plt.figure(figsize = (10, 6))
-        plt.bar(self.names, self.latencies, color = 'blue')
+        plt.bar(self.names, sfe.ltcs, color = 'blue')
 
         # set title and labels
         plt.title('Latency of Pipelines (Average Time per Run)')
