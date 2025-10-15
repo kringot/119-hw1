@@ -90,7 +90,12 @@ class ThroughputHelper:
 
             # calculate throughput
             # total number of items processed = NUM_RUNS * size
-            thrpt = (NUM_RUNS * size) / total_time
+            if total_time > 0:
+                thrpt = (NUM_RUNS * size) / total_time
+
+            # if the time to run the pipeline is too short then set a finite number to prevent error
+            else: 
+                thrpt = 1e15
 
             # add this value of throughput into the list of throughputs
             thrpts.append(thrpt)
