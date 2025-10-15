@@ -12,6 +12,7 @@ to report which one is faster.
 import part1
 import time
 import matplotlib.pyplot as plt
+import os
 
 """
 === Questions 1-5: Throughput and Latency Helpers ===
@@ -208,10 +209,12 @@ def q2a():
     # measure the throughput
     thrpts = h.compare_throughput()
 
+    # make sure directory exists before saving
+    os.makedirs(os.path.dirname(plot_filename), exist_ok = True)
+
     # Generate the plot.
     # Save the plot as 'output/part2-q2a.png'.
-    plt.filename = 'output/part2-q2a.png'
-    h.generate_plot(plt.filename)
+    h.generate_plot(plot.filename)
     
     # TODO
     # Finally, return the throughputs as a list.
