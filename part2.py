@@ -214,7 +214,7 @@ def q2a():
     # make sure directory exists before saving
     os.makedirs(os.path.dirname(plot_filename), exist_ok = True)
     # Generate the plot.
-    h.generate_plot(plot.filename)
+    h.generate_plot(plot_filename)
     
     # TODO
     # Finally, return the throughputs as a list.
