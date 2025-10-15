@@ -1068,10 +1068,14 @@ def q20a(dfs):
 
     return Berkely_ovrl_scr
 
-# def q20b(dfs):
+def q20b(df_2021_cheat):
     # TODO
     # raise NotImplementedError
     # For your answer, return the top 10 university names as a list.
+
+    srt_df_2021_cheat = df_2021_cheat.sort_values(by = 'rank')
+
+    return srt_df_2021_cheat.head(10)['university'].tolist()
 
 """
 21. Exploring data manipulation and falsification, continued
@@ -1194,7 +1198,7 @@ def PART_1_PIPELINE():
 
     # Questions 20-22
     log_answer("q20a", q20a, dfs)
-    # log_answer("q20b", q20b, dfs)
+    log_answer("q20b", q20b, df_2021_cheat)
     # log_answer("q21", q21)
     # 22: commentary
 
