@@ -1066,7 +1066,7 @@ def q20a(dfs):
     # get the overall score of Berkely
     Berkely_ovrl_scr = df_2021_cheat.loc[Berkely_row, 'overall score']
 
-    return Berkely_ovrl_scr
+    return Berkely_ovrl_scr, df_2021_cheat
 
 def q20b(df_2021_cheat):
     # TODO
