@@ -1197,7 +1197,7 @@ def PART_1_PIPELINE():
     # 19: commentary
 
     # Questions 20-22
-    log_answer("q20a", q20a, dfs)
+    log_answer("q20a", q20a, df_2021_cheat)
     log_answer("q20b", q20b, df_2021_cheat)
     # log_answer("q21", q21)
     # 22: commentary
