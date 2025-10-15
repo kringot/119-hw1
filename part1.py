@@ -1040,14 +1040,30 @@ def q20a(dfs):
     # raise NotImplementedError
     # For your answer, return the score for Berkeley in the new column.
 
+    # take out the 2021 data
+    df_2021 = dfs[2]
+
     # create row for Berkely
-    Berkely_cheat = pd.DataFrame({'rank': [1], 'university': ['UC Berkely'], 'region': ['USA'], 'academic reputation': [0.0], 'employer reputation': [0.0], 
-                                  'faculty student': [100.0], 'citations per faculty': [100.0], 'overall score': [0.0]})
+    Berkely_cheat = pd.DataFrame({'rank': [1], 
+                                  'university': ['UC Berkely'], 
+                                  'region': ['USA'], 
+                                  'academic reputation': [0.0], 
+                                  'employer reputation': [0.0], 
+                                  'faculty student': [100.0], 
+                                  'citations per faculty': [100.0], 
+                                  'overall score': [0.0], 
+                                  'year': [2021]})
 
     # use .concat to add in new row
-    dfs = pd.concat([dfs, Berkely_cheat])
+    df_2021_cheat = pd.concat([df_2021_cheat, Berkely_cheat])
 
-    return dfs[100, 'overall score']
+    # find the last row of the dataframe since that is where the berkely row is
+    Berkely_row = len(df_2021_cheat) - 1
+
+    # get the overall score of Berkely
+    Berkely_ovrl_scr = df_2021_cheat.loc[Berkely_row, 'overall score']
+
+    return Berkely_ovrl_scr
 
 # def q20b(dfs):
     # TODO
