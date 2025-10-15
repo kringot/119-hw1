@@ -918,6 +918,10 @@ What do you observe from the plot above? Which university has remained consisten
 
 === ANSWER Q17a BELOW ===
 
+  I observed from the plot that all of the universities remained close within their rankings. 
+  The university that remained constant in their scores is Massachsuetts Institute of Technology (MIT).
+  MIT remaine number 1 conistently throughout the three years.
+
 === END OF Q17b ANSWER ===
 """
 
@@ -946,7 +950,27 @@ As the answer to this part, return the name of the plot you saved.
     # Enter code here
     # TODO
     # raise NotImplementedError
-    # return "output/part1-18.png"
+
+    # create dataframe for 2021 data
+    df_2021 = dfs[2]
+
+    # create correlation matrix
+    corr_mtrx_2021 = df_2021.corr()
+
+    # visualize with matplotlib
+    plt.figure()
+    plt.matshow(corr_mtrx_2021)
+
+    # set the tick marks
+    plt.xticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns, rotation = 90)
+    plt.yticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns)
+
+    # set the title
+    plt.title('Correlation Matrix of Attributes')
+
+    # save the figure
+    plt.savefig('output/part1-18.png')
+    return "output/part1-18.png"
 
 """
 19. Comment on at least one entry in the matrix you obtained in the previous
