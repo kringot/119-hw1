@@ -1066,15 +1066,37 @@ def q20a(dfs):
     # get the overall score of Berkely
     Berkely_ovrl_scr = df_2021_cheat.loc[Berkely_row, 'overall score']
 
-    return Berkely_ovrl_scr, df_2021_cheat
+    return Berkely_ovrl_scr
 
-def q20b(df_2021_cheat):
+def q20b(dfs):
     # TODO
     # raise NotImplementedError
     # For your answer, return the top 10 university names as a list.
 
+    # take out the 2021 data
+    df_2021 = dfs[2]
+
+    # check which columns are in df_2021
+    print(df_2021.columns)
+
+    # create row for Berkely
+    Berkely_cheat = pd.DataFrame({'rank': [1], 
+                                  'university': ['UC Berkely'], 
+                                  'overall score': [100.1],
+                                  'academic reputation': [100.0], 
+                                  'employer reputation': [100.0], 
+                                  'faculty student': [100.0], 
+                                  'citations per faculty': [100.0], 
+                                  'region': ['USA'], 
+                                  'year': ['2021']})
+
+    # use .concat to add in new row
+    df_2021_cheat = pd.concat([df_2021, Berkely_cheat], ignore_index = True)
+
+    # sort the rows according to rank
     srt_df_2021_cheat = df_2021_cheat.sort_values(by = 'rank')
 
+    # return the names of top 10 universities
     return srt_df_2021_cheat.head(10)['university'].tolist()
 
 """
@@ -1197,8 +1219,8 @@ def PART_1_PIPELINE():
     # 19: commentary
 
     # Questions 20-22
-    log_answer("q20a", q20a, df_2021_cheat)
-    log_answer("q20b", q20b, df_2021_cheat)
+    log_answer("q20a", q20a, dfs)
+    log_answer("q20b", q20b, dfs)
     # log_answer("q21", q21)
     # 22: commentary
 
