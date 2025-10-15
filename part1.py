@@ -1178,6 +1178,11 @@ Which do you think would be the most difficult to detect?
 
 === ANSWER Q22 BELOW ===
 
+  If I ws trying to manipulate the rankings, the method I feel would be most effective is the method we used in q20. 
+  However, I feel that the method used in q21 is the most difficult to detect.
+  Since unlike in q20, q21 makes it so that the original source of data appears to align with our cheat. 
+  It could be noticed that the original csv file does not align with the addition of UC Berkely.
+
 === END OF Q22 ANSWER ===
 """
 
