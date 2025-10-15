@@ -1132,8 +1132,10 @@ def q21():
     # load in the falsified file
     df_2021_false = pd.read_csv(FALSIFIED_FILE, encoding = 'latin-1')
 
+    df_2021_false = df_2021_false['rank', 'university', 'region', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
+
     # standardize the column names
-    df_2021_false = df_2021_false.columns.str.lower()
+    df_2021_false.columns = df_2021_false.columns.str.lower()
 
     # create row for Berkely
     Berkely_cheat = pd.DataFrame({'rank': [0], 
