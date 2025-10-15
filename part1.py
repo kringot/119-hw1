@@ -1051,8 +1051,7 @@ def q20a(dfs):
                                   'employer reputation': [0.0], 
                                   'faculty student': [100.0], 
                                   'citations per faculty': [100.0], 
-                                  'overall score': [0.0], 
-                                  'year': [2021]})
+                                  'overall score': [0.0]})
 
     # use .concat to add in new row
     df_2021_cheat = pd.concat([df_2021, Berkely_cheat])
