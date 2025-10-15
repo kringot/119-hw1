@@ -1043,6 +1043,9 @@ def q20a(dfs):
     # take out the 2021 data
     df_2021 = dfs[2]
 
+    # check which columns are in df_2021
+    print(df_2021.columns)
+
     # create row for Berkely
     Berkely_cheat = pd.DataFrame({'rank': [1], 
                                   'university': ['UC Berkely'], 
