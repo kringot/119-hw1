@@ -1049,9 +1049,9 @@ def q20a(dfs):
     # create row for Berkely
     Berkely_cheat = pd.DataFrame({'rank': [1], 
                                   'university': ['UC Berkely'], 
-                                  'overall score': [0.0],
-                                  'academic reputation': [0.0], 
-                                  'employer reputation': [0.0], 
+                                  'overall score': [100.1],
+                                  'academic reputation': [100.0], 
+                                  'employer reputation': [100.0], 
                                   'faculty student': [100.0], 
                                   'citations per faculty': [100.0], 
                                   'region': ['USA'], 
