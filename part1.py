@@ -997,6 +997,9 @@ part that you found surprising or interesting.
 
 === ANSWER Q19 BELOW ===
 
+  Something that I found interesting in the matrix was that all of the attributes were most correlatted with the overall score and rank attributes only.
+  Otherwise, the other attributes did not have much correlation with one another.
+
 === END OF Q19 ANSWER ===
 """
 
@@ -1032,10 +1035,19 @@ Use your new column to sort the data by the new values and return the top 10 uni
 
 """
 
-# def q20a(dfs):
+def q20a(dfs):
     # TODO
     # raise NotImplementedError
     # For your answer, return the score for Berkeley in the new column.
+
+    # create row for Berkely
+    Berkely_cheat = pd.DataFrame({'rank': [1], 'university': ['UC Berkely'], 'region': ['USA'], 'academic reputation': [0.0], 'employer reputation': [0.0], 
+                                  'faculty student': [100.0], 'citations per faculty': [100.0], 'overall score': [0.0]})
+
+    # use .concat to add in new row
+    dfs = pd.concat([dfs, Berkely_cheat])
+
+    return dfs[100, 'overall score']
 
 # def q20b(dfs):
     # TODO
@@ -1162,7 +1174,7 @@ def PART_1_PIPELINE():
     # 19: commentary
 
     # Questions 20-22
-    # log_answer("q20a", q20a, dfs)
+    log_answer("q20a", q20a, dfs)
     # log_answer("q20b", q20b, dfs)
     # log_answer("q21", q21)
     # 22: commentary
