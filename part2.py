@@ -174,7 +174,7 @@ def add_list(l):
 
     # use for loop to add new item to sum
     for item in l:
-        sum = sume + item
+        sum = sum + item
 
     # return the sum
     return sum
