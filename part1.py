@@ -961,12 +961,12 @@ def q18(dfs):
     corr_mtrx_2021 = df_2021.corr()
 
     # visualize with matplotlib
-    plt.figure(figsize = (10, 8))
+    fig, ax = plt.subplots(figsize = (10, 8))
     plt.matshow(corr_mtrx_2021)
 
     # set the tick marks
-    plt.xticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns, rotation = 90)
-    plt.yticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns)
+    ax.set_xticklabels(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns, rotation = 90)
+    ax.set_yticklabals(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns)
 
     # annotate matrix with correlation values
     for i in range(len(corr_mtrx_2021.columns)):
@@ -985,7 +985,7 @@ def q18(dfs):
     plt.title('Correlation Matrix of Attributes')
 
     # fix the layout by adding more margin to fit tick labels
-    plt.subplots_adjust(top = 1, left = 1)
+    plt.subplots_adjust(left = 0.2, top = 0.8)
 
     # save the figure
     plt.savefig('output/part1-18.png')
