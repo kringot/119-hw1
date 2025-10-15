@@ -98,11 +98,11 @@ class ThroughputHelper:
             else: 
                 thrpt = 1e15
 
-            # add this value of throughput into the list of throughputs
-            thrpts.append(thrpt)
+        # add this value of throughput into the list of throughputs
+        thrpts.append(thrpt)
 
             # return the list of throughputs
-            return thrpts
+        return thrpts
 
     def generate_plot(self, filename):
         # Generate a plot for throughput using matplotlib.
@@ -127,7 +127,7 @@ class ThroughputHelper:
         plt.xticks(rotation = 45, ha = 'right')
 
         # add legend
-        for bar, size in zip(bat_chrt, self.sizes):
+        for bar, size in zip(bar_chrt, self.sizes):
             height = bar.get_height()
 
             # calculate input size for each bar
