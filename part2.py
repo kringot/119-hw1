@@ -93,15 +93,17 @@ class ThroughputHelper:
             # total number of items processed = NUM_RUNS * size
             if total_time > 0:
                 thrpt = (NUM_RUNS * size) / total_time
-
             # if the time to run the pipeline is too short then set a finite number to prevent error
             else: 
                 thrpt = 1e15
 
-        # add this value of throughput into the list of throughputs
-        thrpts.append(thrpt)
+            # add this value of throughput into the list of throughputs
+            thrpts.append(thrpt)
 
-            # return the list of throughputs
+        # store result in helper class
+        self.throughputs = thrpts
+
+        # return the list of throughputs
         return thrpts
 
     def generate_plot(self, filename):
@@ -154,7 +156,7 @@ def q1():
     # Return plot method (as a string) from matplotlib
     # raise NotImplementedError
 
-    return "boxplot"
+    return "bar"
 
 """
 2. A simple test case
