@@ -230,6 +230,10 @@ Is this what you expected?
 
 === ANSWER Q2b BELOW ===
 
+    The pipeline that has the highest throughput is the large pipeline. 
+    This is expected because it has the largest number of items. 
+    Therefore taking longer overall to produce results.
+
 === END OF Q2b ANSWER ===
 """
 
