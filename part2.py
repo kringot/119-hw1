@@ -301,8 +301,8 @@ class LatencyHelper:
         # Also, return the resulting list of latencies,
         # in **milliseconds.**
         # raise NotImplementedError
-
-        self.ltcs = ltcs
+        self.latencies = ltcs
+        
         return ltcs
 
     def generate_plot(self, filename):
@@ -317,7 +317,7 @@ class LatencyHelper:
         # You can use any plot you like, but a bar chart probably makes
         # the most sense.
         plt.figure(figsize = (10, 6))
-        plt.bar(self.names, sfe.ltcs, color = 'blue')
+        plt.bar(self.names, sfe_ltcs, color = 'blue')
 
         # set title and labels
         plt.title('Latency of Pipelines (Average Time per Run)')
