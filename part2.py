@@ -266,22 +266,75 @@ class LatencyHelper:
         self.latencies = None
 
     def add_pipeline(self, name, func):
-        raise NotImplementedError
+        # raise NotImplementedError
+        # add a new pipeline function and its name
+        self.names.append(name)
+        self.pipelines.append(func)
 
     def compare_latency(self):
+
+        # create list to hold latency values
+        ltcs = []
+        
         # Measure the latency of all pipelines
-        # and store it in a list in self.latencies.
+        for func in self.pipelines:
+            start_time = time.time()
+
+            for _ in range(NUM_RUNS):
+                func()
+
+            end_time = time.time()
+            total_time = end_time - start_time
+
+            # calculate latency
+            if NUM_RUNS > 0:
+                avg_time = total_time / NUM_RUNS
+            else:
+                avg_time = 0.0
+
+            # convert latency to milliseconds (1 s = 1000 ms)
+            ltcy_ms = avg_time * 1000
+
+            # and store it in a list in self.latencies.
+            ltcs.append(ltcy_ms)
+
         # Also, return the resulting list of latencies,
         # in **milliseconds.**
-        raise NotImplementedError
+        # raise NotImplementedError
+
+        self.ltcs = ltcs
+        return ltcs
 
     def generate_plot(self, filename):
+        
         # Generate a plot for latency using matplotlib.
         # You can use any plot you like, but a bar chart probably makes
         # the most sense.
+        plt.figure(figsize = (10, 6))
+        plt.bar(self.names, self.latencies, color = 'blue')
+
+        # set title and labels
+        plt.title('Latency of Pipelines (Average Time per Run)')
+        plt.xlabel('Pipelne')
+        plt.ylabel('Latency (Milliseconds)')
+        
         # Make sure you include a legend.
+        plt.text(0.98, 0.98, f'Averaged over {NUM_RUNS} runs',
+                 # positions text relative to axes instead of data
+                 transform = plt.gca().transAxes,
+                 va = 'top',
+                 ha = 'right',
+                 bbox = dict(facecolor = 'white', edgecolor = 'gray'))
+
+        # set ticks
+        plt.xticks(rotation = 45, ha = 'right')
+
+        # set the layout
+        plt.tight_layout()
+
         # Save the result in the filename provided.
-        raise NotImplementedError
+        # raise NotImplementedError
+        plt.savefig(filename)
 
 """
 As your answer to this part,
@@ -292,7 +345,9 @@ process if the class is used correctly.
 def q3():
     # Return the number of input items in each dataset,
     # for the latency helper to run correctly.
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    return 1
 
 """
 4. To make sure your monitor is working, test it on
