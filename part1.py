@@ -946,7 +946,7 @@ As the answer to this part, return the name of the plot you saved.
 **Helpful link:** https://datatofish.com/correlation-matrix-pandas/
 """
 
-# def q18(dfs):
+def q18(dfs):
     # Enter code here
     # TODO
     # raise NotImplementedError
@@ -1139,7 +1139,7 @@ def PART_1_PIPELINE():
     # 17b: commentary
 
     # Questions 18-20
-    # log_answer("q18", q18, dfs)
+    log_answer("q18", q18, dfs)
     # 19: commentary
 
     # Questions 20-22
