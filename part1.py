@@ -965,8 +965,8 @@ def q18(dfs):
     plt.matshow(corr_mtrx_2021)
 
     # set the tick marks
-    ax.set_xticklabels(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns, rotation = 90)
-    ax.set_yticklabals(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns)
+    ax.set_xticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns, rotation = 90)
+    ax.set_yticks(range(len(corr_mtrx_2021.columns)), corr_mtrx_2021.columns)
 
     # annotate matrix with correlation values
     for i in range(len(corr_mtrx_2021.columns)):
