@@ -961,7 +961,7 @@ def q18(dfs):
     corr_mtrx_2021 = df_2021.corr()
 
     # visualize with matplotlib
-    plt.figure(figsize = (15, 10))
+    plt.figure(figsize = (30, 20))
     plt.matshow(corr_mtrx_2021)
 
     # set the tick marks
