@@ -365,13 +365,29 @@ LIST_SINGLE_ITEM = [10] # Note: a list with only 1 item
 def q4a():
     # Create a LatencyHelper object
     h = LatencyHelper()
+
+    # define the single pipeline function
+    sngle_item_pipe = lambda: add_list(LIST_SINGLE_ITEM)
+
     # Add the single pipeline three times.
-    raise NotImplementedError
+    # raise NotImplementedError
+    h.add_pipeline("run 1", sngle_item_pipe)
+    h.add_pipeline("run 2", sngle_item_pipe)
+    h.add_pipeline("run 3", sngle_item_pipe)
+
+    # measure the latency in milliseconds
+    ltcs = h.compare_latency()
+    
     # Generate a plot.
     # Save the plot as 'output/part2-q4a.png'.
     # TODO
+    plot_filename = 'output/part2-q4a.png'
+    os.makedirs(os.path.dirname(plot_filename), exist_ok = True)
+    h.generate_plot(plot_filename)
+
     # Finally, return the latencies as a list.
     # TODO
+    return ltcs
 
 """
 4b.
