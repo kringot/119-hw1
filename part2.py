@@ -57,7 +57,11 @@ class ThroughputHelper:
         self.throughputs = None
 
     def add_pipeline(self, name, size, func):
-        raise NotImplementedError
+        # raise NotImplementedError
+        # add new pipeline function, name, and size to helper
+        self.names.append(name)
+        self.sizes.append(size)
+        self.pipelines.append(func)
 
     def compare_throughput(self):
         # Measure the throughput of all pipelines
@@ -65,7 +69,32 @@ class ThroughputHelper:
         # Make sure to use the NUM_RUNS variable.
         # Also, return the resulting list of throughputs,
         # in **number of items per second.**
-        raise NotImplementedError
+        # raise NotImplementedError
+
+        thrpts = []
+
+        # calculate the time needed
+        for size, func in zip(self.sizes, self.pipelines):
+            start_time = time.time()
+
+            # run the pipeline multiple times
+            for _ in range(NUM_RUNS):
+                func()
+
+            # set the end time
+            end_time = time.time()
+            # calculate the time needed
+            total_time = end_time - start_time
+
+            # calculate throughput
+            # total number of items processed = NUM_RUNS * size
+            thrpt = (NUM_RUNS * size) / total_time
+
+            # add this value of throughput into the list of throughputs
+            thrpts.append(thrpt)
+
+            # return the list of throughputs
+            return thrpts
 
     def generate_plot(self, filename):
         # Generate a plot for throughput using matplotlib.
@@ -73,7 +102,37 @@ class ThroughputHelper:
         # the most sense.
         # Make sure you include a legend.
         # Save the result in the filename provided.
-        raise NotImplementedError
+        # raise NotImplementedError
+
+        # create figure and set size
+        plt.figure(figsize = (10, 6))
+
+        # create the bar chart
+        bar_chrt = plt.bar(self.names, self.throughputs, color = 'blue')
+
+        # set the title and labels
+        plt.title('Throughputs of Different Pipelnes')
+        plt.xlabel('Pipeline')
+        plt.ylabel('Throughput (Items/Second)')
+
+        # rotate the xlabels
+        plt.xticks(rotation = 45, ha = 'right')
+
+        # add legend
+        for bar, size in zip(bat_chrt, self.sizes):
+            height = bar.get_height()
+
+            # calculate input size for each bar
+            plt.text(bar.get_x() + bar.get_width() / 2., 1.01 * height, 
+                     f'Size: {size}',
+                     ha = 'center', 
+                     va = 'bottom')
+
+        # set the layout
+        plt.tight_layout()
+
+        # save the figure
+        plt.savefig(filename)     
 
 """
 As your answer to this part,
@@ -85,7 +144,9 @@ matplotlib.
 
 def q1():
     # Return plot method (as a string) from matplotlib
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    return "boxplot"
 
 """
 2. A simple test case
@@ -104,20 +165,51 @@ LIST_LARGE = [10] * 100_000_000
 def add_list(l):
     # TODO
     # Please use a for loop (not a built-in)
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # initialize variable to hold the sum/total
+    sum = 0
+
+    # use for loop to add new item to sum
+    for item in l:
+        sum = sume + item
+
+    # return the sum
+    return sum
 
 def q2a():
     # Create a ThroughputHelper object
     h = ThroughputHelper()
+    
     # Add the 3 pipelines.
     # (You will need to create a pipeline for each one.)
     # Pipeline names: small, medium, large
-    raise NotImplementedError
-    # Generate a plot.
+    # raise NotImplementedError
+
+    # create small pipeline
+    smll_pipe = len(LIST_SMALL)
+    h.add_pipeline("small", smll_pipe, lambda: add_list(LIST_SMALL))
+
+    # create medium pipeline
+    mdm_pipe = len(LIST_MEDIUM)
+    h.add_pipeline("medium", mdm_pipe, lambda: add_list(LIST_MEDIUM))
+
+    # create large pipeline
+    lrge_pipe = len(LIST_LARGE)
+    h.add_pipeline("large", lrge_pipe, lambda: add_list(LIST_LARGE))
+
+    # measure the throughput
+    thrpts = h.compare_throughput()
+
+    # Generate the plot.
     # Save the plot as 'output/part2-q2a.png'.
+    plt.filename = 'output/part2-q2a.png'
+    h.generate_plot(plt.filename)
+    
     # TODO
     # Finally, return the throughputs as a list.
     # TODO
+    return thrpts
 
 """
 2b.
