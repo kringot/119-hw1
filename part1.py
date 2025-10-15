@@ -1047,7 +1047,7 @@ def q20a(dfs):
     print(df_2021.columns)
 
     # create row for Berkely
-    Berkely_cheat = pd.DataFrame({'rank': [1], 
+    Berkely_cheat = pd.DataFrame({'rank': [0], 
                                   'university': ['UC Berkely'], 
                                   'overall score': [100.1],
                                   'academic reputation': [100.0], 
@@ -1080,7 +1080,7 @@ def q20b(dfs):
     print(df_2021.columns)
 
     # create row for Berkely
-    Berkely_cheat = pd.DataFrame({'rank': [1], 
+    Berkely_cheat = pd.DataFrame({'rank': [0], 
                                   'university': ['UC Berkely'], 
                                   'overall score': [100.1],
                                   'academic reputation': [100.0], 
@@ -1115,7 +1115,7 @@ The function does not take an input; you should get it from the file.
 Return the top 10 university names as a list from the falsified data.
 """
 
-# def q21():
+def q21():
     # TODO
     # raise NotImplementedError
 
@@ -1221,7 +1221,7 @@ def PART_1_PIPELINE():
     # Questions 20-22
     log_answer("q20a", q20a, dfs)
     log_answer("q20b", q20b, dfs)
-    # log_answer("q21", q21)
+    log_answer("q21", q21)
     # 22: commentary
 
     # Answer: return the number of questions that are not implemented
