@@ -985,7 +985,7 @@ def q18(dfs):
     plt.title('Correlation Matrix of Attributes')
 
     # fix the layout
-    plt.tight_layout()
+    plt.tight_layout(rect = [0, 0.1, 1, 1])
 
     # save the figure
     plt.savefig('output/part1-18.png')
