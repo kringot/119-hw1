@@ -1096,8 +1096,11 @@ def q20b(dfs):
     # sort the rows according to rank
     srt_df_2021_cheat = df_2021_cheat.sort_values(by = 'rank')
 
+    # get the names of the top 10 universities
+    top_10_cheat = srt_df_2021_cheat.iloc[:10]['university'].tolist()
+
     # return the names of top 10 universities
-    return srt_df_2021_cheat.head(10)['university'].tolist()
+    return top_10_cheat
 
 """
 21. Exploring data manipulation and falsification, continued
@@ -1114,10 +1117,50 @@ The function does not take an input; you should get it from the file.
 
 Return the top 10 university names as a list from the falsified data.
 """
+# define paths
+ORIGINAL_FILE = 'data/2021.csv'
+FALSIFIED_FILE = 'data/2021_falsified.csv'
 
 def q21():
     # TODO
     # raise NotImplementedError
+
+    # copy the original file
+    shutil.copyfile(ORIGINAL_FILE, FALSIFIED_FILE)
+
+    # load in the falsified file
+    df_2021_false = pd.read_csv(FALSIFIED_FILE, encoding = 'latin-1')
+
+    # standardize the column names
+    df_2021_false = df_2021_false.columns.str.lower()
+
+    # create row for Berkely
+    Berkely_cheat = pd.DataFrame({'rank': [0], 
+                                  'university': ['UC Berkely'], 
+                                  'overall score': [100.1],
+                                  'academic reputation': [100.0], 
+                                  'employer reputation': [100.0], 
+                                  'faculty student': [100.0], 
+                                  'citations per faculty': [100.0], 
+                                  'region': ['USA'], 
+                                  'year': ['2021']})
+
+    # use .concat to add in new row
+    df_2021_false = pd.concat([df_2021_false, Berkely_cheat], ignore_index = True)
+
+    # sort the rows according to rank
+    srt_df_2021_false = df_2021_false.sort_values(by = 'rank')
+
+    # save our changes into the data file
+    srt_df_2021_false.to_csv(FALSIFIED_FILE, index = False, encoding = 'latin-1')
+    # load in the falsified file again
+    df_2021_false = pd.read_csv(FALSIFIED_FILE, encoding = 'latin-1')
+
+    # get the top 10 universities
+    top_10_false = df_2021_false.iloc[:10]['university'].tolist()
+
+    # return the top 10 universities
+    return top_10_false
 
 """
 22. Exploring data manipulation and falsification, continued
