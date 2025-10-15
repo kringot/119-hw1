@@ -985,7 +985,7 @@ def q18(dfs):
     plt.title('Correlation Matrix of Attributes')
 
     # fix the layout by adding more margin to fit tick labels
-    plt.subplots_adjust(top = 0.25)
+    plt.subplots_adjust(top = 1, left = 1)
 
     # save the figure
     plt.savefig('output/part1-18.png')
