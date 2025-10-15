@@ -1055,7 +1055,7 @@ def q20a(dfs):
                                   'year': [2021]})
 
     # use .concat to add in new row
-    df_2021_cheat = pd.concat([df_2021_cheat, Berkely_cheat])
+    df_2021_cheat = pd.concat([df_2021, Berkely_cheat])
 
     # find the last row of the dataframe since that is where the berkely row is
     Berkely_row = len(df_2021_cheat) - 1
