@@ -60,6 +60,7 @@ To begin, let's load the Pandas library.
 
 import pandas as pd
 import os
+import shutil
 
 """
 1. Load the dataset into Pandas
