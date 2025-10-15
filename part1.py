@@ -976,7 +976,7 @@ def q18(dfs):
             corr_values = corr_mtrx_2021.iloc[i, j]
 
             # place text onto plot
-            plt.text(j, i, f'{c:.2f}',
+            plt.text(j, i, f'{corr_values:.2f}',
                      va = 'center', 
                      ha = 'center', 
                      fontsize = 9)
