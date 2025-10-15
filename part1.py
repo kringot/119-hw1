@@ -961,7 +961,7 @@ def q18(dfs):
     corr_mtrx_2021 = df_2021.corr()
 
     # visualize with matplotlib
-    plt.figure(figsize = (10, 8))
+    plt.figure(figsize = (15, 10))
     plt.matshow(corr_mtrx_2021)
 
     # set the tick marks
@@ -985,7 +985,7 @@ def q18(dfs):
     plt.title('Correlation Matrix of Attributes')
 
     # fix the layout
-    plt.tight_layout(rect = [0, 0.1, 1, 1])
+    plt.tight_layout(rect = [1, 1, 1, 1])
 
     # save the figure
     plt.savefig('output/part1-18.png')
