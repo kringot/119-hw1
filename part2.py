@@ -287,7 +287,7 @@ class LatencyHelper:
             total_time = end_time - start_time
 
             # calculate latency
-            if NUM_RUNS > 0:
+            if total_time > 0 and NUM_RUNS > 0:
                 avg_time = total_time / NUM_RUNS
             else:
                 avg_time = 0.0
