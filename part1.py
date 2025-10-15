@@ -1132,7 +1132,10 @@ def q21():
     # load in the falsified file
     df_2021_false = pd.read_csv(FALSIFIED_FILE, encoding = 'latin-1')
 
-    df_2021_false = df_2021_false['rank', 'university', 'region', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
+    # create list to hold only columns we need
+    col_need = ['rank', 'university', 'region', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
+    # filter out columns we do not need
+    df_2021_false = df_2021_false[col_need]
 
     # standardize the column names
     df_2021_false.columns = df_2021_false.columns.str.lower()
