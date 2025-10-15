@@ -952,7 +952,10 @@ def q18(dfs):
     # raise NotImplementedError
 
     # create dataframe for 2021 data
-    df_2021 = dfs[2]
+    df_2021_fetus = dfs[2]
+
+    # select only the numerical columns
+    df_2021 = df_2021_fetus[['rank', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']]
 
     # create correlation matrix
     corr_mtrx_2021 = df_2021.corr()
