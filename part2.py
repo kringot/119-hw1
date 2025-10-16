@@ -519,21 +519,87 @@ You shouldn't use any for loops.
 See if you can compute this using Pandas functions only.
 """
 
+POP_FILE = 'data/population.csv'
+EXCLUDE_LOC = [
+    'OWID_WRL', 'OWID_EUR', 'OWID_AFR', 'OWID_ASI', 'OWID_NAM', 
+    'OWID_SAM', 'OWID_OCE', 'OWID_INT', 'OWID_KOS', 'OWID_CYN'
+]
+
 def load_input(filename):
     # Return a dataframe containing the population data
     # **Clean the data here**
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # determine which column to use for filtering
+    loc_col = None
+    if 'iso_code' in df.columns:
+        loc_col = 'iso_code'
+    elif 'location_code' in df.columns:
+        loc_col = 'location_col'
+
+    # filter out excluded locations
+    if loc_col:
+        df_cleaned = df[~df[loc_col].isin(EXCLUDE_LOC)].copy()
+    else:
+        df_cleaned = df.copy()
+
+    # make sure that year and population are numeric columns
+    df_cleaned['year'] = pd.to_numeric(df_cleaned['year'], errors = 'coerce')
+    df_cleaned['population'] = pd.to_numeric(df_cleaned['population'], errors = 'coerce')
+
+    # get rid of rows that the conversion failed
+    df_cleaned.dropna(subset = ['year', 'population'], inplace = True)
+
+    return df_cleaned
+
 
 def population_pipeline(df):
     # Input: the dataframe from load_input()
     # Return a list of min, median, max, mean, and standard deviation
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # set index for minimum and maximum years fo each country
+    idx_min = df.groupby('country')['year'].idxmin()
+    idx_max = df.groupby('country')['year'].idxmax()
+
+    # use indices to select rows for beginning and end of period
+    df_start = df.loc[idx_min, ['country', 'year', 'population']].rename(
+        columns = {'year': 'min_year', 'population': 'pop_start'}).set_index('country')
+    df_end = df.loc[idx_max, ['country', 'year', 'population']].rename(
+        columns = {'year': 'max_year', 'population': 'pop_end'}).set_index('country')
+
+    # combine the start and end dataframes
+    df_strt_end = df_start.join(df_end)
+
+    # create columns for population difference and time period length
+    df_strt_end['pop_diff'] = df_strt_end['pop_end'] - df_strt_end['pop_start']
+    df_strt_end['time_period'] = df_strt_end['max_year'] - df_strt_end['min_year']
+
+    # filter out cases where there is only one year (time period = 0)
+    clean_df = df_strt_end[df_strt_end['time_period'] > 0].copy()
+
+    # compute summary statistic for year-over-year (annual average) increase
+    stats = valid_data_df['yoy_increase'].describe()
+
+    # extract and return required statistics as a list
+    # 50% is the median
+    req_stats = stats.loc[['min', '50%', 'max', 'mean', 'std']].tolist()
+
+    return req_stats
 
 def q6():
     # As your answer to this part,
+    
     # call load_input() and then population_pipeline()
+    pop_data = load_input(POPULATION_FILE)
+    
     # Return a list of min, median, max, mean, and standard deviation
-    raise NotImplementedError
+    # raise NotImplementedError
+    stats_list = population_pipeline(pop_data)
+    
+    # return lsit of statistics
+    return stats_list
+    
 
 """
 7. Varying the input size
