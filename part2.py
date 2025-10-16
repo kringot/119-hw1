@@ -530,6 +530,9 @@ def load_input(filename):
     # **Clean the data here**
     # raise NotImplementedError
 
+    # set dataframe as the inported data
+    df = pd.read_csv(filename)
+
     # determine which column to use for filtering
     loc_col = None
     if 'iso_code' in df.columns:
