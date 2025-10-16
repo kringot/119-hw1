@@ -550,11 +550,11 @@ def load_input(filename):
         df_cleaned = df.copy()
 
     # make sure that year and population are numeric columns
-    df_cleaned['year'] = pd.to_numeric(df_cleaned['year'], errors = 'coerce')
-    df_cleaned['population'] = pd.to_numeric(df_cleaned['population'], errors = 'coerce')
+    df_cleaned['Year'] = pd.to_numeric(df_cleaned['Year'], errors = 'coerce')
+    df_cleaned['Population (historical)'] = pd.to_numeric(df_cleaned['Population (historical)'], errors = 'coerce')
 
     # get rid of rows that the conversion failed
-    df_cleaned.dropna(subset = ['year', 'population'], inplace = True)
+    df_cleaned.dropna(subset = ['Year', 'Population (historical)'], inplace = True)
 
     return df_cleaned
 
@@ -565,14 +565,14 @@ def population_pipeline(df):
     # raise NotImplementedError
 
     # set index for minimum and maximum years fo each country
-    idx_min = df.groupby('country')['year'].idxmin()
-    idx_max = df.groupby('country')['year'].idxmax()
+    idx_min = df.groupby('Entity')['Year'].idxmin()
+    idx_max = df.groupby('Entity')['Year'].idxmax()
 
     # use indices to select rows for beginning and end of period
-    df_start = df.loc[idx_min, ['country', 'year', 'population']].rename(
-        columns = {'year': 'min_year', 'population': 'pop_start'}).set_index('country')
-    df_end = df.loc[idx_max, ['country', 'year', 'population']].rename(
-        columns = {'year': 'max_year', 'population': 'pop_end'}).set_index('country')
+    df_start = df.loc[idx_min, ['Entity', 'Year', 'Population (historical)']].rename(
+        columns = {'Year': 'min_year', 'Population (historical)': 'pop_start'}).set_index('Entity')
+    df_end = df.loc[idx_max, ['Entity', 'Year', 'Population (historical)']].rename(
+        columns = {'Year': 'max_year', 'Population (historical)': 'pop_end'}).set_index('Entity')
 
     # combine the start and end dataframes
     df_strt_end = df_start.join(df_end)
