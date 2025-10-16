@@ -519,6 +519,9 @@ You shouldn't use any for loops.
 See if you can compute this using Pandas functions only.
 """
 
+import pandas as pd
+import os
+
 POP_FILE = 'data/population.csv'
 EXCLUDE_LOC = [
     'OWID_WRL', 'OWID_EUR', 'OWID_AFR', 'OWID_ASI', 'OWID_NAM', 
