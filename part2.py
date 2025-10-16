@@ -435,7 +435,7 @@ def q5a():
     thrpt_hlpr = ThroughputHelper()
 
     # get input size for throughput
-    input_size = input_data
+    input_size = len(input_data)
 
     # put part 1 pipeline to helper
     pipe_name = 'Part 1 Pipeline'
