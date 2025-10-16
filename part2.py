@@ -591,7 +591,7 @@ def q6():
     # As your answer to this part,
     
     # call load_input() and then population_pipeline()
-    pop_data = load_input(POPULATION_FILE)
+    pop_data = load_input(POP_FILE)
     
     # Return a list of min, median, max, mean, and standard deviation
     # raise NotImplementedError
