@@ -763,34 +763,88 @@ b. Generate a plot in output/part2-q9b.png of the latencies
 """
 
 # TODO
-# POPULATION_SMALL =
-# POPULATION_MEDIUM =
-# POPULATION_LARGE =
-# POPULATION_SINGLE_ROW =
+POPULATION_SMALL = load_input_small()
+POPULATION_MEDIUM = load_input_medium()
+POPULATION_LARGE = load_input_large()
+POPULATION_SINGLE_ROW = load_input_single_row()
 
 def fromvar_small():
-    raise NotImplementedError
+    # runs the pipeline on the small dataframe
+    # raise NotImplementedError
+
+    return population_pipeline(POPULATION_SMALL)
 
 def fromvar_medium():
-    raise NotImplementedError
+    # runs the pipeline on the medium dataframe
+    # raise NotImplementedError
+
+    return population_pipeline(POPULATION_MEDIUM)
 
 def fromvar_large():
-    raise NotImplementedError
+    # runs the pipeline on the large dataframe
+    # raise NotImplementedError
+
+    return population_pipeline(POPULATION_LARGE)
 
 def fromvar_latency():
-    raise NotImplementedError
+    # runs the pipeline on the single-line dataframe
+    # raise NotImplementedError
+
+    return population_pipeline(POPULATION_SINGLE_ROW)
 
 def q9a():
+
+    # create helper object
+    thrpt_hlpr = ThroughputHelper()
+
+    # get input sizes
+    size_smll = len(POPULATION_SMALL)
+    size_mdm = len(POPULATION_MEDIUM)
+    size_lrge = len(POPULATION_LARGE)
+    
     # Add all 6 pipelines for a throughput comparison
-    # Generate plot in ouptut/q9a.png
+    # baseline, loaded from file
+    thrpt_hlpr.add_pipeline("bsln_smll", size_smll, bsln_smll)
+    thrpt_hlpr.add_pipeline("bsln_mdm", size_mdm, bsln_mdm)
+    thrpt_hlpr.add_pipeline("bsln_lrge", size_lrge, bsln_lrge)
+
+    # fromvar, loaded from memory
+    thrpt_hlpr.add_pipeline("frvr_smll", size_smll, frvr_smll)
+    thrpt_hlpr.add_pipeline("frvr_mdm", size_mdm, frvr_mdm)
+    thrpt_hlpr.add_pipeline("frvr_lrge", size_lrge, frvr_lrge)
+
+    # measure the throughputs
+    thrpts = thrpt_hlpr.compare_throughput()
+
+    # Generate and save plot in ouptut/q9a.png
+    plt_flnm = 'output/part2-q9a.png'
+    thrpt_hlpr.generate_plot(plt_flnm)
+
     # Return list of 6 throughputs
-    raise NotImplementedError
+    # raise NotImplementedError
+    return thrpts
 
 def q9b():
+
+    # create helper object
+    ltcy_hlpr = LatencyHelper()
+    
     # Add 2 pipelines for a latency comparison
-    # Generate plot in ouptut/q9b.png
+    # basline
+    ltcy_hlpr.add_pipeline("bsln_ltcy", bsln_ltcy)
+    # fromvar
+    ltcy_hlpr.add_pipeline("frvr_ltcy", frvr_ltcy)
+
+    # calculate latencies (milliseconds)
+    ltces = ltcy_hlpr.compare_latency()
+    
+    # Generate and save plot in ouptut/q9b.png
+    plt_flnm = 'output/part2-q9b.png'
+    ltcy_hlpr.generate_plot(plt_flnm)
+    
     # Return list of 2 latencies
-    raise NotImplementedError
+    # raise NotImplementedError
+    return ltces
 
 """
 10.
