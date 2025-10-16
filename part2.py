@@ -585,7 +585,7 @@ def population_pipeline(df):
     clean_df = df_strt_end[df_strt_end['time_period'] > 0].copy()
 
     # compute summary statistic for year-over-year (annual average) increase
-    stats = valid_data_df['yoy_increase'].describe()
+    stats = clean_df['yoy_increase'].describe()
 
     # extract and return required statistics as a list
     # 50% is the median
