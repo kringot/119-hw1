@@ -584,8 +584,11 @@ def population_pipeline(df):
     # filter out cases where there is only one year (time period = 0)
     clean_df = df_strt_end[df_strt_end['time_period'] > 0].copy()
 
-    # compute summary statistic for year-over-year (annual average) increase
-    stats = clean_df['yoy_increase'].describe()
+    # calculate the year over year (yoy) increase statistic
+    clean_df['yoy_inc'] = clean_df['pop_diff'] / clean_df['time_period']
+
+    # compute summary statistic using yoy increase
+    stats = clean_df['yoy_inc'].describe()
 
     # extract and return required statistics as a list
     # 50% is the median
