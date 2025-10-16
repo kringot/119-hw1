@@ -804,14 +804,14 @@ def q9a():
     
     # Add all 6 pipelines for a throughput comparison
     # baseline, loaded from file
-    thrpt_hlpr.add_pipeline("bsln_smll", size_smll, baseline_small)
-    thrpt_hlpr.add_pipeline("bsln_mdm", size_mdm, baseline_medium)
-    thrpt_hlpr.add_pipeline("bsln_lrge", size_lrge, baseline_large)
+    thrpt_hlpr.add_pipeline("baseline_small", size_smll, baseline_small)
+    thrpt_hlpr.add_pipeline("baseline_medium", size_mdm, baseline_medium)
+    thrpt_hlpr.add_pipeline("baseline_large", size_lrge, baseline_large)
 
     # fromvar, loaded from memory
-    thrpt_hlpr.add_pipeline("frvr_smll", size_smll, fromvar_small)
-    thrpt_hlpr.add_pipeline("frvr_mdm", size_mdm, fromvar_medium)
-    thrpt_hlpr.add_pipeline("frvr_lrge", size_lrge, fromvar_large)
+    thrpt_hlpr.add_pipeline("fromvar_small", size_smll, fromvar_small)
+    thrpt_hlpr.add_pipeline("fromvar_medium", size_mdm, fromvar_medium)
+    thrpt_hlpr.add_pipeline("fromvar_large", size_lrge, fromvar_large)
 
     # measure the throughputs
     thrpts = thrpt_hlpr.compare_throughput()
@@ -831,9 +831,9 @@ def q9b():
     
     # Add 2 pipelines for a latency comparison
     # basline
-    ltcy_hlpr.add_pipeline("bsln_ltcy", baseline_latency)
+    ltcy_hlpr.add_pipeline("baseline_latency", baseline_latency)
     # fromvar
-    ltcy_hlpr.add_pipeline("frvr_ltcy", fromvar_latency)
+    ltcy_hlpr.add_pipeline("fromvar_latency", fromvar_latency)
 
     # calculate latencies (milliseconds)
     ltces = ltcy_hlpr.compare_latency()
