@@ -429,13 +429,13 @@ def q5a():
     # raise NotImplementedError
 
     # get input from part 1
-    input_data = part1.load_input()
+    # input_data = part1.load_input()
 
     # create ThroughputHelper object
     thrpt_hlpr = ThroughputHelper()
 
     # get input size for throughput
-    input_size = len(input_data)
+    input_size = len(part1.load_input())
 
     # put part 1 pipeline to helper
     pipe_name = 'Part 1 Pipeline'
