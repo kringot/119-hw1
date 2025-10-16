@@ -636,17 +636,37 @@ The input CSV file will have 600 rows, but the DataFrame (after your cleaning) m
 """
 
 def load_input_small():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load only first 600 rows
+    df = pd.read_csv(POP_FILE, nrows = 600)
+
+    return df
 
 def load_input_medium():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load the first 6000 rows
+    df = pd.read_csv(POP_FILE, nrows = 6000)
+
+    return df
 
 def load_input_large():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load full dataframe
+    df = pd.read_csv(POP_FILE)
+
+    return df
 
 def load_input_single_row():
     # This is the pipeline we will use for latency.
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load in only one line and the header
+    df = pd.read_csv(POP_FILE, nrows = 1)
+
+    return df
 
 def q7():
     # Don't modify this part
