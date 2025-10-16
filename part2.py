@@ -442,7 +442,7 @@ def q5a():
     pipe_func = part1.PART_1_PIPELINE
 
     # add pipeline to helper object
-    thrpt_hlpr.add_pipeline(pipeline_name, input_size, pipeline_func)
+    thrpt_hlpr.add_pipeline(pipe_name, input_size, pipe_func)
 
     # measure the throughput
     thrpts = thrpt_hlpr.compare_throughput()
