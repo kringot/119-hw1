@@ -82,7 +82,7 @@ class ThroughputHelper:
 
             # run the pipeline multiple times
             for _ in range(NUM_RUNS):
-                func()
+                _ = func()
 
             # set the end time
             end_time = time.time()
@@ -281,7 +281,7 @@ class LatencyHelper:
             start_time = time.time()
 
             for _ in range(NUM_RUNS):
-                func()
+                _ = func()
 
             end_time = time.time()
             total_time = end_time - start_time
