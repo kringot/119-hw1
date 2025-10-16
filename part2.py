@@ -698,16 +698,40 @@ that you think is meaningful.
 """
 
 def baseline_small():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load in the small dataframe
+    df = load_input_small()
+
+    # return list of statistics
+    return population_pipeline(df)
 
 def baseline_medium():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load in the medium dataframe
+    df = load_input_medium()
+
+    # return list of statistics
+    return population_pipeline(df)
 
 def baseline_large():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load in the large dataframe
+    df = load_input_large()
+
+    # return list of statistics
+    return population_pipeline(df)
 
 def baseline_latency():
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # load in the single-line dataframe
+    df = load_input_single_row()
+
+    # return list of statistics
+    return population_pipeline(df)
 
 def q8():
     # Don't modify this part
