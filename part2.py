@@ -402,6 +402,9 @@ Is this more or less than what you expected?
 
 === ANSWER Q4b BELOW ===
 
+    The only difference in latency was between the first and second runs of the pipeline.
+    The difference was less than about 0.005 milliseconds.
+    
 === END OF Q4b ANSWER ===
 """
 
@@ -423,11 +426,50 @@ of the pipeline in part 1.
 
 def q5a():
     # Return the throughput of the pipeline in part 1.
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # get input from part 1
+    input_data = part1.load_input()
+
+    # create ThroughputHelper object
+    thrpt_hlpr = ThroughputHelper()
+
+    # get input size for throughput
+    input_size = input_data
+
+    # put part 1 pipeline to helper
+    pipe_name = 'Part 1 Pipeline'
+    pipe_func = part1.PART_1_PIPELINE
+
+    # add pipeline to helper object
+    thrpt_hlpr.add_pipeline(pipeline_name, input_size, pipeline_func)
+
+    # measure the throughput
+    thrpts = thrpt_hlpr.compare_throughput()
+
+    return thrpts[0]
+    
 
 def q5b():
     # Return the latency of the pipeline in part 1.
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # create LatencyHelper object
+    ltcy_hlpr = LatencyHelper()
+
+    # add part 1 pipeline to helper
+    pipe_name = 'Part 1 Pipeline'
+    pipe_func = part1.PART_1_PIPELINE
+
+    # add pipeline to helper object
+    ltcy_hlpr.add_pipeline(pipe_name, pipe_func)
+
+    # measure latency
+    ltcs = ltcy_hlpr.compare_latency()
+
+    # return latency (milliseconds)
+    return ltcs[0]
+    
 
 """
 ===== Questions 6-10: Performance Comparison 1 =====
