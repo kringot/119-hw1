@@ -908,7 +908,9 @@ def for_loop_pipeline(df):
         if entity not in population:
             population[entity] = {
                 'min_year': year,
-                'pop_start': ppltn
+                'pop_start': ppltn, 
+                'max_year': year, 
+                'pop_end': ppltn
             }
         # else, update the maximum year/pop on every following row
         else:
