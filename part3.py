@@ -77,7 +77,7 @@ def clone_repo(repo_url):
             # error_output = ""
         
         # when repo might already exist
-        if "already exists" in e.stderr():
+        if "already exists" in e.stderr:
             print(f"Warning: Repository {repo_url} already exists.")
         else: 
             print(f"Git Error (Status {e.returncode}): {e.stderr.strip()}")
