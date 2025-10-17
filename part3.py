@@ -352,12 +352,27 @@ def pipeline_shell():
     # TODO
     # raise NotImplementedError
 
-    # 'cat filename' prints file content
-    # |wc -l counts number of remaining rows
-    shell_command = f"cat {POP_FILE} | wc -l"
+    # 'type displays the file content
+    # | find /c /v "" counts every line
+    shell_command = f"type {POP_FILE} | find /c /v \"\""
 
     # execute command and read output string
     output = os.popen(shell_command).read()
+
+    # strip non-digit characters to get clean output
+    try:
+        # attempt simple conversion first
+        return int(output.strip())
+    except ValueError:
+        # filter non_digit characters
+        cleaned_output = ''.join(filter(str.isdigit, output))
+
+        if cleaned_output:
+            return int(cleaned_output)
+        else:
+            # if command failed, raise rror
+            print(f"Shell command failed.")
+            raise ValueError(f"Invalid output from shell command: '{output.strip()}'")
 
     # strip any leading or trailing whitespace
     # Return resulting integer
