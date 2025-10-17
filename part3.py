@@ -70,17 +70,17 @@ def clone_repo(repo_url):
     except subprocess.CalledProcessError as e:
 
         # get the error output string
-        error_output = e.stderr
-        if isinstance(error_output, bytes):
-            error_output = error_output.decode(errors = 'ignore')
-        elif error_output is None:
-            error_output = ""
+        # error_output = e.stderr
+        # if isinstance(error_output, bytes):
+            # error_output = error_output.decode(errors = 'ignore')
+        # elif error_output is None:
+            # error_output = ""
         
         # when repo might already exist
-        if "already exists" in e.stderr.decode():
+        if "already exists" in e.stderr():
             print(f"Warning: Repository {repo_url} already exists.")
         else: 
-            print(f"Git Error (Status {e.returncode}): {error_output.strip()}")
+            print(f"Git Error (Status {e.returncode}): {e.stderr.strip()}")
             raise e
 
 # runs python script using subprocess, passes data file path
