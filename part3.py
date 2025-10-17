@@ -355,7 +355,7 @@ def pipeline_shell():
     # 'type displays the file content
     # | find /c /v "" counts every line
     shell_command = f"findstr /R /C:^ {POP_FILE} | find /C /V \"\""
-    shell_command_simple = f"find /C /V \"\"{POP_FILE}"
+    shell_command_simple = f'find /C /V "" "{POP_FILE}"'
 
     # execute command and read output string
     output = os.popen(shell_command_simple).read()
@@ -382,7 +382,10 @@ def pipeline_shell():
     # strip number
     parts = output.strip().split(':')
     if len(parts) < 2:
-        print(f"Shell command failed. Output: '{output.strip()}'")
+        if "FIND: Parameter format not correct" in output:
+            print("Shell command failed due to parameter format.")
+        else: 
+            print(f"Shell command failed. Output: '{output.strip()}'")
         return 0
 
     # strip the count of whitespace
