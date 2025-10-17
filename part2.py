@@ -1040,16 +1040,56 @@ b. Generate a plot in output/part2-q13b.png of the latencies
 """
 
 def q13a():
+    # create helper object
+    thrpt_hlpr = ThroughputHelper()
+
+    # get input sizes
+    size_smll = len(POPULATION_SMALL)
+    size_mdm = len(POPULATION_MEDIUM)
+    size_lrge = len(POPULATION_LARGE)
+    
     # Add all 6 pipelines for a throughput comparison
-    # Generate plot in ouptut/q13a.png
+    # baseline, loaded from file
+    thrpt_hlpr.add_pipeline("baseline_small", size_smll, baseline_small)
+    thrpt_hlpr.add_pipeline("baseline_medium", size_mdm, baseline_medium)
+    thrpt_hlpr.add_pipeline("baseline_large", size_lrge, baseline_large)
+
+    # fromvar, loaded from memory
+    thrpt_hlpr.add_pipeline("for_loop_small", size_smll, for_loop_small)
+    thrpt_hlpr.add_pipeline("for_loop_medium", size_mdm, for_loop_medium)
+    thrpt_hlpr.add_pipeline("for_loop_large", size_lrge, for_loop_large)
+
+    # measure the throughputs
+    thrpts = thrpt_hlpr.compare_throughput()
+
+    # Generate and save plot in ouptut/q13a.png
+    plt_flnm = 'output/part2-q13a.png'
+    thrpt_hlpr.generate_plot(plt_flnm)
+
     # Return list of 6 throughputs
-    raise NotImplementedError
+    # raise NotImplementedError
+    return thrpts
 
 def q13b():
+    # create helper object
+    ltcy_hlpr = LatencyHelper()
+    
     # Add 2 pipelines for a latency comparison
-    # Generate plot in ouptut/q13b.png
+    # basline
+    ltcy_hlpr.add_pipeline("baseline_latency", baseline_latency)
+    # fromvar
+    ltcy_hlpr.add_pipeline("for_loop_latency", for_loop_latency)
+
+    # calculate latencies (milliseconds)
+    ltces = ltcy_hlpr.compare_latency()
+    
+    # Generate and save plot in ouptut/q13b.png
+    plt_flnm = 'output/part2-q13b.png'
+    ltcy_hlpr.generate_plot(plt_flnm)
+    
     # Return list of 2 latencies
-    raise NotImplementedError
+    # raise NotImplementedError
+    return ltces
 
 """
 14.
