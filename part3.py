@@ -46,10 +46,13 @@ import os
 
 # set the output directory
 OUTPUT_DIR = "output"
+REPO_NAME = "119-hw1"
 
 # downloads the file at url and saves it in filename
 def download_file(url, filename):
     r = requests.get(url)
+    # add status check to make sure valid file was downloaded
+    r.raise_for_status()
     with open(filename, 'wb') as f:
         f.write(r.content)
 
@@ -80,7 +83,7 @@ def run_script(script_path, data_path):
     full_path = os.path.join(repo_dir, script_path)
 
     # execute python script
-    subprocess.run(['python', full_script_path, data_path], check = True)
+    subprocess.run(['python', full_path, data_path], check = True)
 
 # downloads  data, clones  repo, and runs script on data
 def setup(repo_url, data_url, script_path):
@@ -115,7 +118,7 @@ def q1():
 
     # make sure that output file exists
     if not os.path.exists(out_path):
-        print(f"Error: Output file not found at {output_path}")
+        print(f"Error: Output file not found at {out_path}")
         return None
 
     with open(out_path, 'r') as f:
