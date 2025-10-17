@@ -380,7 +380,7 @@ def pipeline_shell():
     # return int(output.strip())
 
     # strip number
-    parts = outpu.strip().split(':')
+    parts = output.strip().split(':')
     if len(parts) < 2:
         print(f"Shell command failed. Output: '{output.strip()}'")
         return 0
