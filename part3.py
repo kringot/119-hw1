@@ -224,11 +224,11 @@ def setup_for_new_machine():
             print(f"Error: Command failed: {e.cmd}")
             print(f"Stdout: \n{e.stdout}")
             print(f"Stderr: \n{e.stderr}")
-
-    print("Setup Complete")
-
+            
             # stop execution if setup fails
             raise e
+
+    print("Setup Complete")
 
 def q3():
     # As your answer, return a string containing
