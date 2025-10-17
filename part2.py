@@ -1101,11 +1101,22 @@ Comment on the results you got!
 
 ===== ANSWER Q14a BELOW =====
 
+    In terms of throughput, I would say that the pipelines that utilized the for loop were the fastest.
+    They were faster than those that used the baseline, which in turn were faster than the 
+    pipelines that loaded the data in from memory.
+    Although that difference in speed was only visible in the large dataset.
+    Therefore, the fastest pipelines in terms of throughput are those that used the for loop.
+
 ===== END OF Q14a ANSWER =====
 
 14b. Which pipeline is faster in terms of latency?
 
 ===== ANSWER Q14b BELOW =====
+
+    In terms of latency, the pipelines that used data loaded from the the file had the largest.
+    Those that used data loaded from memory had the second largest latency, while the pipelines
+    that used the for loop had the smallest latency.
+    Therefore, the fastest pipeline in terms of latency is the one that use the for loop.
 
 ===== END OF Q14b ANSWER =====
 
@@ -1113,6 +1124,18 @@ Comment on the results you got!
 What does this experiment show?
 
 ===== ANSWER Q14c BELOW =====
+
+    An interesting observation that I noticed was that the difference in the throughput between the pipelines
+    that used the data loaded in through the file and those that were loaded in through 
+    memory, only showed when the data set was significantly large. 
+    Otherwise, the two shared pretty much the same size of throughput.
+
+    Another intersting thing that I noticed was that despite being slower in throughput, the
+    pipeline that used data from memory was faster in latency than the pipeline that used
+    data from the file.
+
+    This experiment shows that the fastest possible combination in throughput and latency can be
+    achieved when using for loops in code when running data through pipelines.
 
 ===== END OF Q14c ANSWER =====
 """
@@ -1127,6 +1150,12 @@ had the biggest impact on performance?
 
 ===== ANSWER Q15 BELOW =====
 
+    The factor that we tested that had the biggest impact on performance was the usage of the
+    for loop.
+    This is because it created the smallest latency and throughput.
+    It was also the most tedious to utilize, although it created the same results as if
+    we did not use for loops.
+
 ===== END OF Q15 ANSWER =====
 
 16.
@@ -1138,6 +1167,19 @@ This is an open ended question.)
 
 ===== ANSWER Q16 BELOW =====
 
+    Based on my plots, throuhgput greatly increases exponentially as the size of the data set
+    increases. 
+    This can be see in the all the pipelines that ran differing sizes of data sets, 
+    regardless of the kind of data we loaded through it.
+    For example, the pipelines that loaded a small data set in from the files and 
+    from the memory both had a throughput of about 0.1 seconds per item. 
+    The throughput for the medium-sized data sets were about the same with each other, but they
+    were both more than double the size in throughput than if a small dataset was run through them.
+    The same can be applied to the large datasets in comparison to the medium-sized ones.
+    However, the throughput for the larger datasets were again more than double the 
+    throughput of the medium sized data sets. 
+    This proves that the throughput grows exponentially as the input dataset grows larger.
+
 ===== END OF Q16 ANSWER =====
 
 17.
@@ -1148,6 +1190,13 @@ throughput is related to latency.
 This is an open ended question.)
 
 ===== ANSWER Q17 BELOW =====
+
+    Throughput and latency may be inversely related. 
+    This is because the throughput of the pipelines that utilized data loaded in from the file was smaller than the thorughput of 
+    data loaded in through memory that were used in other pipelines. 
+    However, their latency switched. 
+    The data loaded from memory caused their pipeline to have a much smaller
+    latency in compared to the pipeline that loaded data in from a file. 
 
 ===== END OF Q17 ANSWER =====
 """
