@@ -353,9 +353,8 @@ def pipeline_shell():
     # raise NotImplementedError
 
     # 'cat filename' prints file content
-    # "| tail -n +2 skips the first line (header)
     # |wc -l counts number of remaining rows
-    shell_command = f"cat {POP_FILE} | tail -n +2 | wc -l"
+    shell_command = f"cat {POP_FILE} | wc -l"
 
     # execute command and read output string
     output = os.popen(shell_command).read()
