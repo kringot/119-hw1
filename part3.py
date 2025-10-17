@@ -345,26 +345,53 @@ with:
 .
 """
 
-POP_FILE = 'data
+POP_FILE = 'data/population.csv'
 
+# counts number of rows in file using shell command pipeline
 def pipeline_shell():
     # TODO
     # raise NotImplementedError
 
-    
-    # Return resulting integer
+    # 'cat filename' prints file content
+    # "| tail -n +2 skips the first line (header)
+    # |wc -l counts number of remaining rows
+    shell_command f"cat {POP_FILE} | tail -n +2 | wc -l"
 
+    # execute command and read output string
+    output = os.popen(shell_command).read()
+
+    # strip any leading or trailing whitespace
+    # Return resulting integer
+    return int(output.strip())
+
+# counts the number of rows in the file using pandas
 def pipeline_pandas():
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # read csv into dataframe
+    df = pd.read_csv(POP_FILE)
+
+    # return number of rows
     # Return resulting integer
+    return len(df)
 
 def q6():
+
+    # run both pipelines
+    shell_rows = pipeline_shell()
+    pandas_rows = pipeline_pandas()
+    
     # As your answer to this part, check that both
     # integers are the same and return one of them.
     # TODO
-    raise NotImplementedError
-
+    # raise NotImplementedError
+    if shell_rows == pandas_rows:
+        return shell_rows
+    else:
+        print(f"Error: Row counts do not match. Shell: {shell_rows}, Pandas: {pandas_rows}")
+        return None
+    
 """
 Let's do a performance comparison between the two methods.
 
