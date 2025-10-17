@@ -370,9 +370,10 @@ def pipeline_shell():
         return 0
 
     # strip the count of whitespace
-    count_strip = parts[-1].strip()
+    # count_strip = parts[-1].strip()
+    lines = output.splitlines()
 
-    return int(count_strip)
+    return len(lines)
 
 # counts the number of rows in the file using pandas
 def pipeline_pandas():
