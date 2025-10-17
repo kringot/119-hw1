@@ -228,7 +228,7 @@ def setup_for_new_machine():
     print("Setup Complete")
 
             # stop execution if setup fails
-            raiso e
+            raise e
 
 def q3():
     # As your answer, return a string containing
