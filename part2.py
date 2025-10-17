@@ -932,7 +932,7 @@ def for_loop_pipeline(df):
 
         # compute summary statistics
         # return zeros if the list is empty
-        if not yoy_inccrses:
+        if not yoy_incrses:
             return [0.0, 0.0, 0.0, 0.0, 0.0]
 
         # calculate the mean
@@ -950,7 +950,7 @@ def for_loop_pipeline(df):
 
         # calculate minimum and maximum
         min = yoy_incrses[0]
-        max = oy_incrses[-1]
+        max = yoy_incrses[-1]
         
         # calculate median
         # if data has a center
