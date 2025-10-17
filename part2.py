@@ -985,16 +985,40 @@ As before, write 4 pipelines based on the datasets from Q7.
 """
 
 def for_loop_small():
-    raise NotImplementedError
+    # run manual pipeline on small dataset
+    # raise NotImplementedError
+
+    # load small dataset in
+    df = load_input_small()
+
+    return for_loop_pipeline(df)
 
 def for_loop_medium():
-    raise NotImplementedError
+    # run manual pipeline on medium dataset
+    # raise NotImplementedError
+
+    # load medium dataset in
+    df = load_input_medium()
+
+    return for_loop_pipeline(df)
 
 def for_loop_large():
-    raise NotImplementedError
+    # run manual pipeline on large dataset
+    # raise NotImplementedError
 
+    # load large dataset in
+    df = load_input_large()
+
+    return for_loop_pipeline(df)
+    
 def for_loop_latency():
-    raise NotImplementedError
+    # run manual pipeline on single-line dataset
+    # raise NotImplementedError
+
+    # load single-line dataset in
+    df = load_input_single_row()
+
+    return for_loop_pipeline(df)
 
 def q12():
     # Don't modify this part
