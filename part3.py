@@ -421,7 +421,7 @@ Additionally, generate a plot and save it in
 """
 
 # import part 2 py file to use helper classes
-import part2
+from part2 import ThroughputHelper, LatencyHelper
 
 def q7():
     # Return a list of two floats
