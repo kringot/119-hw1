@@ -232,8 +232,8 @@ Is this what you expected?
 
     The pipeline that has the highest throughput is the large pipeline. 
     This is expected because it has the largest number of items. 
-    Therefore taking longer overall to produce results.
-
+    Therefore allowng more items per second to be utilized.
+    
 === END OF Q2b ANSWER ===
 """
 
@@ -859,8 +859,10 @@ What does this experiment show?
     The difference can be seen when the dataframe gets very large.
     Throughput differs more than latency by a lot.
     Latency does not show as much of a difference.
-    The experiment shows that loading data from the memory (FromVar) takes much more 
-    time and causes a large throughput compared to laoding data from file (Baseline). 
+    The experiment shows that loading data from the memory (FromVar) is much more 
+    efficient due to its larger throughput compared to laoding data from file (Baseline).
+    While loading data from the file is much faster because it has a higher latency than
+    when loading data from the memory.
 
 ===== END OF Q10 ANSWER =====
 """
@@ -1101,11 +1103,11 @@ Comment on the results you got!
 
 ===== ANSWER Q14a BELOW =====
 
-    In terms of throughput, I would say that the pipelines that utilized the for loop were the fastest.
-    They were faster than those that used the baseline, which in turn were faster than the 
+    In terms of throughput, I would say that the pipelines that utilized the for loop were the slowerst.
+    They were less efficient than those that used the baseline, which in turn were slower than the 
     pipelines that loaded the data in from memory.
-    Although that difference in speed was only visible in the large dataset.
-    Therefore, the fastest pipelines in terms of throughput are those that used the for loop.
+    Although that difference for type of data load in speed was only visible in the large dataset.
+    Therefore, the fastest pipelines in terms of throughput are those that used data loaded from memory.
 
 ===== END OF Q14a ANSWER =====
 
@@ -1125,17 +1127,19 @@ What does this experiment show?
 
 ===== ANSWER Q14c BELOW =====
 
-    An interesting observation that I noticed was that the difference in the throughput between the pipelines
-    that used the data loaded in through the file and those that were loaded in through 
-    memory, only showed when the data set was significantly large. 
-    Otherwise, the two shared pretty much the same size of throughput.
+    An interesting observation that I noticed was that the througput for the pipelines that used 
+    the for loop remained consistently small regardless of dataset size.
+    It was quite different from the pipelines that used data loaded in from memory and file that 
+    had a throughput that grew exponentially with the dataset size. 
 
-    Another intersting thing that I noticed was that despite being slower in throughput, the
-    pipeline that used data from memory was faster in latency than the pipeline that used
+    Another intersting thing that I noticed was that despite being faster in throughput, the
+    pipeline that used data from memory was slower in latency than the pipeline that used
     data from the file.
 
-    This experiment shows that the fastest possible combination in throughput and latency can be
-    achieved when using for loops in code when running data through pipelines.
+    This experiment shows that for large and medium datasets, the fastest method would be to use a pipeline
+    with data loaded in from memory.
+    It also shows that for small datasets, the fastest method would be to use a pipeline
+    with data loaded in from file.
 
 ===== END OF Q14c ANSWER =====
 """
