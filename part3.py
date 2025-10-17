@@ -420,6 +420,9 @@ Additionally, generate a plot and save it in
 7. Throughput
 """
 
+# import part 2 py file to use helper classes
+import part2
+
 def q7():
     # Return a list of two floats
     # [throughput for shell, throughput for pandas]
