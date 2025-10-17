@@ -362,25 +362,22 @@ def pipeline_shell():
     # execute command and read output string
     output = os.popen(shell_command).read()
 
-    # strip number
-    # parts = output.strip().split(':')
-    # if len(parts) < 2:
-        # if "FIND: Parameter format not correct" in output:
-            # print("Shell command failed due to parameter format.")
-        # else: 
-            # print(f"Shell command failed. Output: '{output.strip()}'")
-        # return 0
-
     # strip the count of whitespace
-    # count_strip = parts[-1].strip()
     lines = output.splitlines()
 
+    # return 0 to prevent crash
     if not lines or "FINDSTR: Cannot open" in output:
         print(f"Shell command failed. Output: {output.strip()}")
         return 0
 
+    current_count = len(lines)
 
-
+    # adjust count by -1 if file is not empty
+    if current_count > 0:
+        return current_count - 1
+    else:
+        return 0
+        
     return len(lines)
 
 # counts the number of rows in the file using pandas
