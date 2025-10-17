@@ -61,7 +61,7 @@ def clone_repo(repo_url):
     # repository name is last part of url path
     try:
         #use check = True to raise an exception if git clone fails
-        subprocess.run(['git', 'clone', repo_url, check = True)
+        subprocess.run(['git', 'clone', repo_url], check = True)
     except subprocess.CalledProcessError as e:
         # when repo might already exist
         if "already exists" in e.stderr.decode()
