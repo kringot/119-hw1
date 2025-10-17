@@ -855,6 +855,13 @@ What does this experiment show?
 
 ===== ANSWER Q10 BELOW =====
 
+    The difference between the two pipelines is very dramatic for the throughput.
+    The difference can be seen when the dataframe gets very large.
+    Throughput differs more than latency by a lot.
+    Latency does not show as much of a difference.
+    The experiment shows that loading data from the memory (FromVar) takes much more 
+    time and causes a large throughput compared to laoding data from file (Baseline). 
+
 ===== END OF Q10 ANSWER =====
 """
 
@@ -885,16 +892,90 @@ Create a new pipeline:
 - Manually compute the summary statistics for the resulting list (min, median, max, mean, and standard deviation).
 """
 
+import math
+
 def for_loop_pipeline(df):
     # Input: the dataframe from load_input()
+    population = {}
+
+    # add new columns for minimum and maximum year data per country
+    for index, row in df.iterrows():
+        entity = row['Entity']
+        year = row['Year']
+        ppltn = row['Population (historical)']
+
+        # if it is the first time encountering the country/entity, set minimum year/pop
+        if entity not in population:
+            population[entity] = {
+                'min_year': year,
+                'pop_start': ppltn
+            }
+        # else, update the maximum year/pop on every following row
+        else:
+            population[entity]['max_year'] = year
+            population[entity]['pop_end'] = ppltn
+
+    # create list to hold yoy increase
+    yoy_incrses = []
+
+    # compute yoy increase for each entity
+    for data in population.values()
+        time_prd = data['max_year'] - data['min_year']
+
+        # exclude cases where there is only one year
+        if time_prd > 0:
+            pop_diff = data['pop_end'] - data['pop_start']
+
+            yoy_incrs = pop_diff / time_prd
+            # add the yoy increase into the list of yoy increases
+            yoy_incrses.append(yoy_incrs)
+
+        # compute summary statistics
+        # return zeros if the list is empty
+        if not yoy_inccrses:
+            return [0.0, 0.0, 0.0, 0.0, 0.0]
+
+        # calculate the mean
+        mean = sum(yoy_incrses) / len(yoy_incrses)
+
+        # calculate the variance for the standard deviation
+        var = sum([(x - mean) ** 2 for x in yoy_incrses]) / (len(yoy_incrses) - 1 if len(yoy_incrses) > 1 else 1)
+        # calculate standard deviation
+        std_dev = math.sqrt(var)
+
+        # sort through yoy increases
+        yoy_incrses.sort()
+        # set the length of the list
+        count = len(yoy_incrses)
+
+        # calculate minimum and maximum
+        min = yoy_incrses[0]
+        max = oy_incrses[-1]
+        
+        # calculate median
+        # if data has a center
+        if count % 2 == 1:
+            median = yoy_incrses[count // 2]
+        # if data has two values as center
+        else:
+            mid1 = yoy_incrses[count // 2 - 1]
+            mid2 = yoy_incrses[count // 2]
+            median = (mid1 + mid2) / 2
+            
     # Return a list of min, median, max, mean, and standard deviation
-    raise NotImplementedError
+    # raise NotImplementedError
+    return [min, median, max, mean, std_dev]
 
 def q11():
     # As your answer to this part, call load_input() and then
+    pop_data = load_input_large()
+
     # for_loop_pipeline() to return the 5 numbers.
     # (these should match the numbers you got in Q6.)
-    raise NotImplementedError
+    # raise NotImplementedError
+    stats = for_loop_pipeline(pop_data)
+
+    return stats
 
 """
 12.
