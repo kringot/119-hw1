@@ -382,7 +382,7 @@ def pipeline_shell():
     # strip number
     parts = outpu.strip().split(':')
     if len(parts) < 2:
-        print(f"Shell command failed. Output: {'output.strip()}'")
+        print(f"Shell command failed. Output: '{output.strip()}'")
         return 0
 
     # strip the count of whitespace
