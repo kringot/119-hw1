@@ -41,32 +41,90 @@ get uploaded when you submit.
 
 # You may need to conda install requests or pip3 install requests
 import requests
+import subprocess
+import os
 
+# set the output directory
+OUTPUT_DIR = "output"
+
+# downloads the file at url and saves it in filename
 def download_file(url, filename):
     r = requests.get(url)
     with open(filename, 'wb') as f:
         f.write(r.content)
 
+# clone the repository using git subprocess
 def clone_repo(repo_url):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
 
+    # repository name is last part of url path
+    try:
+        #use check = True to raise an exception if git clone fails
+        subprocess.run(['git', 'clone', repo_url, check = True)
+    except subprocess.CalledProcessError as e:
+        # when repo might already exist
+        if "already exists" in e.stderr.decode()
+            print(f"Warning: Repository {repo_url} already exists.")
+        else: 
+            raise e
+
+# runs python script using subprocess, passes data file path
 def run_script(script_path, data_path):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
 
+    repo_dir = "119-hw1"
+
+    # script is located inside cloned repository directory
+    full_path = os.path.join(repo_dir, script_path)
+
+    # execute python script
+    subprocess.run(['python', full_script_path, data_path], check = True)
+
+# downloads  data, clones  repo, and runs script on data
 def setup(repo_url, data_url, script_path):
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # determine local filename for downloaded data
+    # extracts 'test-input.txt'
+    data_flnm = data_url.split('/')[-1]
+
+    # download data file
+    download_file(data_url, data_flnm)
+
+    # clone the responsitory
+    clone_repo(repo_url)
+
+    # run script on downloaded data
+    run_script(script_path, data_flnm)
 
 def q1():
     # Call setup as described in the prompt
     # TODO
+    setup(
+        "https://github.com/DavisPL-Teaching/119-hw1",
+        "https://raw.githubusercontent.com/DavisPL-Teaching/119-hw1/refs/heads/main/data/test-input.txt",
+        "test-script.py"
+    )
+    
     # Read the file test-output.txt to a string
     # TODO
+    out_path = os.path.join(OUTPUT_DIR, "test-output.txt")
+
+    # make sure that output file exists
+    if not os.path.exists(out_path):
+        print(f"Error: Output file not found at {output_path}")
+        return None
+
+    with open(out_path, 'r') as f:
+        out_str = f.read().strip()
+
     # Return the integer value of the output
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+    return int(out_str)
 
 """
 2.
