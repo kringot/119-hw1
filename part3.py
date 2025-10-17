@@ -497,6 +497,10 @@ Comment on anything else you notice below.
 
 === ANSWER Q9 BELOW ===
 
+    The method that is considered faster would have a larger throughput and smaller latency.
+    The method that satisfies this is the pandas pipeline.
+    Something that I notice is that their throughput values are about the same.
+
 === END OF Q9 ANSWER ===
 """
 
