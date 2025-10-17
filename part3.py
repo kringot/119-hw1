@@ -140,11 +140,19 @@ this scenario?
 
 === ANSWER Q2a BELOW ===
 
+    You might need to use a script like setup() every two weeks when you need to re-run
+    your scripts.
+    That way, everyone starts on the same page and are kept up to date since it will provide
+    the latest changes. 
+
 === END OF Q2a ANSWER ===
 
 Do you see an alternative to using a script like setup()?
 
 === ANSWER Q2b BELOW ===
+
+    I do see an alternative to using a script like setup. 
+    it is kind of how we use git pull and git stash.
 
 === END OF Q2b ANSWER ===
 
