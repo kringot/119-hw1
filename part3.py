@@ -195,15 +195,49 @@ any packages?
 
 def setup_for_new_machine():
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    commands = [
+
+        # install Git
+        ['winget', 'install', '--id', 'Git.Git', '-e', '--source', 'winget', 
+        '--accept-package-agreemens', '--accept-source-agreements'], 
+
+        # install pandas and matplotlib
+        ['pip3', 'install', 'requests', 'pandas', 'matplotlib']
+
+    ]
+
+    print("Starting Setup for New Machine")
+
+    # run commands
+    for command in commands:
+        command_str = ' '.join(command)
+        print(f"Executing: {command_str}")
+
+        try:
+            # execute command using subprocess.run
+            subprocess.run(command, check = True, text = True, capture_output = True)
+
+        except subprocess.CalledProcessError as e:
+            # handle the error for each command
+            print(f"Error: Command failed: {e.cmd}")
+            print(f"Stdout: \n{e.stdout}")
+            print(f"Stderr: \n{e.stderr}")
+
+    print("Setup Complete")
+
+            # stop execution if setup fails
+            raiso e
 
 def q3():
     # As your answer, return a string containing
     # the operating system name that you assumed the
     # new machine to have.
     # TODO
-    raise NotImplementedError
-    # os =
+    # raise NotImplementedError
+    
+    os = "Windows"
     return os
 
 """
