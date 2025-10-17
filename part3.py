@@ -439,7 +439,7 @@ def q7():
 
     # add pipelines
     thrpt_hlpr.add_pipeline("shell_pipeline", input_size, pipeline_shell)
-    thrpt_hlpr.add_pipeline("pandas_pipeline", input_size, pipelin_pandas)
+    thrpt_hlpr.add_pipeline("pandas_pipeline", input_size, pipeline_pandas)
 
     # measure throughputs
     thrpts = thrpt_hlpr.compare_throughput()
@@ -477,7 +477,7 @@ def q8():
 
     # add pipelines
     ltcy_hlpr.add_pipeline("shell_pipeline", pipeline_shell)
-    ltcy_hlpr.add_pipeline("pandas_pipeline", pipelin_pandas)
+    ltcy_hlpr.add_pipeline("pandas_pipeline", pipeline_pandas)
 
     # measure latencies (milliseconds)
     ltcs = ltcy_hlpr.compare_latency()
