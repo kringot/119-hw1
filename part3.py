@@ -425,7 +425,30 @@ def q7():
     # [throughput for shell, throughput for pandas]
     # (in rows per second)
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # create helper
+    thrpt_hlpr = ThroughputHelper()
+
+    # determine input size
+    df = pd.read_csv(POP_FILE)
+    input_size = len(df)
+
+    # add pipelines
+    thrpt_hlpr.add_pipeline("shell_pipeline", input_size, pipeline_shell)
+    thrpt_hlpr.add_pipeline("pandas_pipeline", input_size, pipelin_pandas)
+
+    # measure throughputs
+    thrpts = thrpt_hlpr.compare_throughput()
+
+    # generate and save plot
+    plt_flnm = 'output/part3-q7.png'
+    os.makedirs(os.path.dirname(plt_flnm), exist_ok = True)
+    thrpt_hlpr.generate_plot(plt_flnm)
+
+    # return list of 2 throughputs
+    return thrpts
+
 
 """
 8. Latency
@@ -444,7 +467,26 @@ def q8():
     # [latency for shell, latency for pandas]
     # (in milliseconds)
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    # create helper
+    ltcy_hlpr = LatencyHelper()
+
+    # add pipelines
+    ltcy_hlpr.add_pipeline("shell_pipeline", pipeline_shell)
+    ltcy_hlpr.add_pipeline("pandas_pipeline", pipelin_pandas)
+
+    # measure latencies (milliseconds)
+    ltcs = ltcy_hlpr.compare_latency()
+
+    # generate and save plot
+    plt_flnm = 'output/part3-q8.png'
+    os.makedirs(os.path.dirname(plt_flnm), exist_ok = True)
+    ltcy_hlpr.generate_plot(plt_flnm)
+
+    # return list of 2 latencies
+    return ltcs
+
 
 """
 9. Which method is faster?
