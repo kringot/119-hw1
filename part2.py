@@ -919,7 +919,7 @@ def for_loop_pipeline(df):
     yoy_incrses = []
 
     # compute yoy increase for each entity
-    for data in population.values()
+    for data in population.values():
         time_prd = data['max_year'] - data['min_year']
 
         # exclude cases where there is only one year
