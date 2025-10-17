@@ -64,7 +64,7 @@ def clone_repo(repo_url):
         subprocess.run(['git', 'clone', repo_url], check = True)
     except subprocess.CalledProcessError as e:
         # when repo might already exist
-        if "already exists" in e.stderr.decode()
+        if "already exists" in e.stderr.decode():
             print(f"Warning: Repository {repo_url} already exists.")
         else: 
             raise e
