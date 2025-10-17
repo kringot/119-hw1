@@ -354,29 +354,41 @@ def pipeline_shell():
 
     # 'type displays the file content
     # | find /c /v "" counts every line
-    shell_command = f"type {POP_FILE} | find /c /v \"\""
+    shell_command = f"findstr /R /C:^ {POP_FILE} | find /C /V \"\""
+    shell_command_simple = f"find /C /V \"\"{POP_FILE}"
 
     # execute command and read output string
-    output = os.popen(shell_command).read()
+    output = os.popen(shell_command_simple).read()
 
     # strip non-digit characters to get clean output
-    try:
+    # try:
         # attempt simple conversion first
-        return int(output.strip())
-    except ValueError:
+        # return int(output.strip())
+    # except ValueError:
         # filter non_digit characters
-        cleaned_output = ''.join(filter(str.isdigit, output))
+        # cleaned_output = ''.join(filter(str.isdigit, output))
 
-        if cleaned_output:
-            return int(cleaned_output)
-        else:
+        # if cleaned_output:
+            # return int(cleaned_output)
+        # else:
             # if command failed, raise rror
-            print(f"Shell command failed.")
-            raise ValueError(f"Invalid output from shell command: '{output.strip()}'")
+            # print(f"Shell command failed.")
+            # raise ValueError(f"Invalid output from shell command: '{output.strip()}'")
 
     # strip any leading or trailing whitespace
     # Return resulting integer
-    return int(output.strip())
+    # return int(output.strip())
+
+    # strip number
+    parts = outpu.strip().split(':')
+    if len(parts) < 2:
+        print(f"Shell command failed. Output: 'output.strip()}'")
+        return 0
+
+    # strip the count of whitespace
+    count_strip = parts[-1].strip()
+
+    return int(count_strip)
 
 # counts the number of rows in the file using pandas
 def pipeline_pandas():
