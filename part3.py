@@ -262,6 +262,12 @@ in their day-to-day jobs?
 
 === ANSWER Q4 BELOW ===
 
+    I think that real data scientists spend at least about 15% of their time having to
+    write scripts like setup() and setup_for_new_machine() because it feels like a very
+    important part. 
+    Especially since the work is done in a project, everyone needs to be able to work on
+    the same material.
+
 === END OF Q4 ANSWER ===
 
 5.
@@ -278,6 +284,11 @@ If you don't have a friend's machine, please speculate about
 what might happen if you tried. You can guess.
 
 === ANSWER Q5 BELOW ===
+
+    I do not have a friend's machine. I feel that if this happened, there might be some
+    sort of error that we would run into. 
+    Maybe something to do with difference in system versions.
+    Otherwise, I think it might work.
 
 === END OF Q5 ANSWER ===
 
@@ -334,9 +345,13 @@ with:
 .
 """
 
+POP_FILE = 'data
+
 def pipeline_shell():
     # TODO
-    raise NotImplementedError
+    # raise NotImplementedError
+
+    
     # Return resulting integer
 
 def pipeline_pandas():
