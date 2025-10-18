@@ -460,6 +460,7 @@ def q7(dfs):
     # TODO
     # raise NotImplementedError
     # Remember to return the list here
+    columns = []
 
     # set this to be the values in year column
     current_year = 2019
@@ -469,10 +470,13 @@ def q7(dfs):
         # np.nan is for numerical values, None is for null values, and '' is for strings
         df['year'] = current_year
 
+        # get the number of columns
+        columns.append(len(df.columns))
+
         # add 1 year to current_year for next year's data frame
         current_year = current_year + 1
 
-    return dfs
+    return columns
 
 """
 8a.
